@@ -1,0 +1,43 @@
+{
+  "workspace": "/kaggle/working/official-baseline/repo-source",
+  "declared": [
+    "annotated-doc",
+    "email-validator",
+    "fastapi-cli",
+    "fastar",
+    "httpx",
+    "itsdangerous",
+    "jinja2",
+    "pydantic",
+    "pydantic-extra-types",
+    "pydantic-settings",
+    "pytest",
+    "python-multipart",
+    "pyyaml",
+    "starlette",
+    "typing-extensions",
+    "typing-inspection",
+    "uvicorn"
+  ],
+  "requested_packages": [
+    "httpx",
+    "itsdangerous",
+    "jinja2",
+    "pydantic",
+    "pytest",
+    "starlette",
+    "typing-extensions"
+  ],
+  "official_dedup_wheels": [
+    "httpx-0.28.1-py3-none-any.whl",
+    "itsdangerous-2.2.0-py3-none-any.whl",
+    "jinja2-3.1.6-py3-none-any.whl",
+    "pydantic-2.13.4-py3-none-any.whl",
+    "pytest-9.1.1-py3-none-any.whl",
+    "starlette-1.6.0-py3-none-any.whl",
+    "typing_extensions-4.16.0-py3-none-any.whl"
+  ],
+  "pip_exit_code": 0,
+  "pip_stdout_tail": " in /usr/local/lib/python3.12/dist-packages (from httpcore==1.*->httpx) (0.16.0)\nRequirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.12/dist-packages (from jinja2) (3.0.3)\nRequirement already satisfied: annotated-types>=0.6.0 in /usr/local/lib/python3.12/dist-packages (from pydantic) (0.7.0)\nRequirement already satisfied: pydantic-core==2.41.4 in /usr/local/lib/python3.12/dist-packages (from pydantic) (2.41.4)\nRequirement already satisfied: typing-inspection>=0.4.2 in /usr/local/lib/python3.12/dist-packages (from pydantic) (0.4.2)\nRequirement already satisfied: iniconfig>=1 in /usr/local/lib/python3.12/dist-packages (from pytest) (2.3.0)\nRequirement already satisfied: packaging>=20 in /usr/local/lib/python3.12/dist-packages (from pytest) (26.1)\nRequirement already satisfied: pluggy<2,>=1.5 in /usr/local/lib/python3.12/dist-packages (from pytest) (1.6.0)\nRequirement already satisfied: pygments>=2.7.2 in /usr/local/lib/python3.12/dist-packages (from pytest) (2.20.0)\n",
+  "pip_stderr_tail": ""
+}

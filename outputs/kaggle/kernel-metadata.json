@@ -1,0 +1,16 @@
+{
+  "id": "haoimba/gemma4-developer-agent",
+  "title": "gemma4-developer-agent",
+  "code_file": "developer_agent.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_internet": false,
+  "competition_sources": [
+    "gemma-4-developer-agent"
+  ],
+  "dataset_sources": [],
+  "model_sources": []
+}
