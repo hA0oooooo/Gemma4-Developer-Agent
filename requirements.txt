@@ -1,2 +1,23 @@
-# Kaggle access; harness installation is documented in agent/workflow/local_check.md
 kaggle==2.2.4
+pyflakes
+pytest
+pytest-httpbin==2.1.0
+pytest-cov==7.1.0
+pytest-mock==3.16.0
+pytest-xdist==3.8.0
+httpbin==0.10.4
+trustme==1.2.1
+PySocks==1.7.1
+chardet==7.6.0
+hatchling
+fastapi==0.136.0
+starlette==0.52.1
+prometheus-fastapi-instrumentator==7.1.0
+data/wheelhouse/vllm-0.19.1-cp38-abi3-manylinux_2_31_x86_64.whl
+data/wheelhouse/google_adk-1.36.1-py3-none-any.whl
+data/wheelhouse/google_genai-2.11.0-py3-none-any.whl
+data/wheelhouse/adk_submission-0.2.13-py3-none-any.whl
+data/wheelhouse/adk_eval_core-0.1.0-py3-none-any.whl
+data/wheelhouse/swegemma-0.2.11-py3-none-any.whl
+data/wheelhouse/transformers-5.13.1-py3-none-any.whl
+data/wheelhouse/tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
