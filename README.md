@@ -28,7 +28,6 @@
 | 理解最终结论、公开0.18比较 | [Harness收尾](agent/research/harness_closeout.md) |
 | 选择训练数据与分析 bad case | [训练交接](agent/research/training_handoff.md) |
 | 理解本地与公开官方环境差异 | [执行环境审计](agent/research/execution_alignment.md) |
-| 构建训练轨迹与奖励 | [轨迹规范](agent/research/training_trajectories.md) |
 | 修改 Agent 配置 | [submission](submission/) |
 | 查看开发、复核和提交入口 | [基线工作流](agent/workflow/baseline.md) |
 | 查找历史研究与负结果 | [研究索引](agent/research/index.md) |
@@ -81,7 +80,7 @@ python src/build_submission.py --output output/packages/review.zip
 | `submission/` | 精确0.17开发基线，四份声明式配置 |
 | `src/` | 运行、比较、独立审计、打包和提交逻辑，以及 CPU 回归 |
 | `tests/fixtures/` | 可入库的纯元数据夹具 |
-| `agent/research/` | 当前结论、训练交接、固定题集清单与历史研究 |
+| `agent/research/` | 5份研究文档与固定题集清单，旧全文按历史索引查阅 |
 | `agent/workflow/` | 环境与执行说明 |
 | `agent/competition/`、`agent/harness/` | 官方资料与接口说明 |
 | `data/` | 本地官方输入、依赖和权重，Git 忽略 |

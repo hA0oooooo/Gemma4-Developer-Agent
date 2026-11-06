@@ -15,7 +15,7 @@ Harness研究已收束，当前开发基线是已评分0.17的单31B／六原生
 解释器 /mnt/data/haoyang/miniconda3/envs/agent/bin/python
 
 submission/仅保留精确0.17四文件开发基线，实验候选另建到output/research/<机制>/，不要混入默认打包目录
-src/维护共享运行逻辑，tests/fixtures/只保留纯元数据，agent/记录结论与规范，data/与output/均不入库
+src/维护共享运行逻辑，tests/fixtures/只保留纯元数据，agent/记录结论与规范；research仅保留5份文档，旧全文通过history固定Git版本查询，data/与output/均不入库
 研究脚本及历史原型不混入维护代码；新README已获用户明确授权
 
 ##### 证据与执行纪律

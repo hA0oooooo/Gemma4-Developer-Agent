@@ -1,61 +1,93 @@
-##### 结论
+##### 下一阶段做什么
 
-下一阶段优先补全模型在真实仓库中的修复轨迹，固定0.17 Harness，再比较base与训练后模型
-目前已得到可靠的失败分类和数据门槛，尚无训练就绪数据、已验证adapter或训练收益
+固定已评分0.17 Harness，优先补全模型在真实仓库中的定位、编辑、错误恢复与验证轨迹，再比较base与训练后模型
+现有数据完成了研究交接，尚未达到SFT／RL直接训练条件；没有已验证adapter或训练收益
+Harness结果与公开实现比较统一见[研究结论](harness_closeout.md)，环境资格见[执行审计](execution_alignment.md)
 
-公榜回退0.17来自既有正式评分；本轮整理没有新增提交
-多轮Harness干预未形成可接纳的整体优势，工具调用错误减少或单题修好不足以证明隐藏集提分，也不构成所有Harness方法的能力上限
+##### Bad case与数据选择
 
-##### 最值得补的数据
+最近诊断覆盖19个差异配对、38侧轨迹、7道不同issue，候选独有4个配对、失分15个配对
+其中12个失分配对集中在前三道题，不是19种独立失败，也不是0.17所有失败的频率估计
 
-| 难点 | 已审核的具体例子 | 应补的数据与训练信号 |
-| --- | --- | --- |
-| 定位耗尽动作 | FastAPI9425候选四次重复均耗尽24动作、最终空patch，未发生实现写入 | issue→关键符号→调用者→首次有效编辑的完整轨迹，包含高信息量检索与停止导航 |
-| 接口语义或修改层次错误 | Rich4077将isatty代理到console标志；FastAPI14430在共享helper解包Annotated，错过v2序列化的UnionType路径 | 从真实API契约推导目标层，覆盖代理对象、typing、版本分支与边界行为 |
-| 跨模块实现不完整 | Rich3676只存notes而未完成renderer；既有HTTPX3672修改parser后遗留pool调用者 | 需求→字段→消费端→调用者→导出的完整改动，涵盖同步／异步及兼容路径 |
-| 工具参数错误后不能恢复 | FastAPI5077某重复连续十次write_file缺filepath，反馈后仍重复，最后只留复现脚本 | 与实际schema／模板一致的工具调用，加一条明确错误反馈后正确修复参数的下一步 |
-| 自测只验证自己的假设 | FastAPI5077某弱打印在未修复原版也“成功”；Rich4077自测复述错误console假设 | 同一行为断言在原版失败、修复后通过，且验证实际公开API与回归路径 |
-| 时间花费没有转化为修复 | Security scope隔离在两个重复中因加时完成，但5→8分钟整体K=4比较更差 | 完成且成本可归因的交互轨迹，奖励正确修复并计入全部失败成本 |
+| 题目 | 配对数 | 实际观察 | 优先补的数据 |
+| --- | ---: | --- | --- |
+| rich_4077 | 4 | 首次实现就把isatty代理到console状态，控制代理到底层file；候选四次在5分钟前结束 | API契约、代理对象语义、能否从可见需求得出结论 |
+| fastapi_9425 | 4 | 候选24次动作耗在导航，完整序列没有实现写入；控制处理字符串None | issue→符号→调用者→首次有效编辑，高信息量检索与停止导航 |
+| fastapi_14430 | 4 | 候选改序列判断层，遗漏v2序列化的UnionType入口 | typing与版本分支的实际消费路径，修改正确层次 |
+| rich_3676 | 1 | notes字段、存储和renderer未完整接通，末次自测被预算拒绝 | 跨模块功能接入、渲染与真实需求覆盖 |
+| fastapi_5077 | 2 | 一次连续十次write_file缺filepath后只留repro；另一次真实跨模块断言红→修复→绿并最终保留 | 参数错误反馈后的下一步纠正；包装函数参数与返回注解一起修复 |
+| fastapi_5624 | 2 | 候选修复兄弟Security scope污染并保留，控制超时仅留repro | 状态隔离与高效完整修复，保留同批失败成本 |
+| requests_7433 | 2 | 一次两侧整份patch相同而原生结果不同；另一次实现相同但候选另留scratch | 验证噪声、额外文件与模型能力差异分别标注 |
 
-这些例子主要来自19个差异配对、38侧轨迹、7道独立issue，不是全体题目或0.17所有失败的频率估计
-同题多重复应在数据中保留共同身份，不能当作不同任务扩大样本量
-未发现至少两道“先完整修好、后来被改坏”的合格实例，当前证据不支持优先训练检查点回滚
+既有HTTPX3672还暴露了修改parser却遗漏pool调用者的问题，可作为跨模块传播数据的补充来源，不混入上述19配对的分母
 
-##### 标注时保留的边界
+38侧中30侧有实现补丁、4侧仅scratch、4侧最终空补丁
+30侧最终实现与可重建的最后一次原生直接编辑一致，没有验证到“完整修好后又改坏”的合格回退机会，未达到至少两道不同题的机制准入门槛
+重建依赖自身最终diff、原始Python快照与实际观察到的edit／write内容；任意shell副作用、后来删除的文件和未执行中间态不作完整保证
 
-- 解析后的缺字段不等于原始生成就缺字段，旧日志缺原始token时保留未知，不把parser产物直接当模型输出标签
-- Rich4077的可见issue只包含简短代理要求与离线链接，需求信息缺口单列，不向评测题补入外部答案
-- Requests7433某配对最终补丁相同而原生验证不同，验证噪声与模型差异分开处理
-- FastAPI5077要覆盖跨模块包装函数的参数和返回注解；只改一处、导入成功或打印Success都不足以作成功标签
-- 更长预算存在个别正例，但K=4总体结果为候选24/120、对照35/120窄阳性、成本+20.53%，不从子集倒推整体有效
+##### 标注边界
 
-原始核验：output/research/trajectory-diagnosis/{case-ledger.json,manual-review.json,next-validation-protocol.json}
-完整来源范围与审核说明见[轨迹诊断](trajectory_diagnosis.md)
+- FastAPI5077某重复step7–16的write_file只有content，filepath片段落在content末尾，反馈明确提示缺必填字段；这证明解析后调用错误，缺原始token时不能唯一归责模型或parser
+- Rich4077可见issue只有简短代理要求与离线链接，输入信息缺口单列，不向评测题补入外部答案
+- Rich3676补丁引用但未定义traceback.notes，是源码风险；轨迹未执行末次渲染，不声称观察到MissingStyle
+- 一个故意未捕获的复现异常可能在输出正确渲染后退出1，不能把所有非零退出认作退化
+- 自测打印Success可能在未修复原版也通过，真实断言必须校准原版失败、修复后通过，并覆盖公开API与回归路径
 
-##### SFT先做什么
+完整诊断在Linux的output/research/trajectory-diagnosis/{case-ledger.json,manual-review.json,completion-audit.json}
+case-ledger保留采集时pending，最终人工覆盖层以manual-review为准
+next-validation-protocol.json是未准入的设计稿，不能据其启动模型
 
-选择经审核的完整定位→编辑→真实验证轨迹，尤其是跨文件传播、版本兼容分支、参数错误恢复和错误假设纠正
-成功样本必须绑定最终实现补丁和自己的原生／独立测试；负轨迹可用于构造偏好比较或错误恢复示例，但不能直接当成功示范
+##### 已有轨迹包
 
-已有four-directions/trajectories.jsonl.gz含60条解析后轨迹、30道暴露题，其中13条有限源码支持不代表13条完整SFT成功样本
-现有SFT／RL就绪标记均为false，缺原始生成与角色转换信息必须如实记录
-具体转换规范见[training_trajectories.md](training_trajectories.md)
+| 路径 | 内容 |
+| --- | --- |
+| output/research/four-directions/trajectories.jsonl.gz | 60条解析后ATIF、自生成最终补丁、配置、来源及质量标签 |
+| output/research/four-directions/trajectory-manifest.json | 数量、分组、去重、范围与包文件SHA |
+| output/research/four-directions/tool-schemas.json | 安装版六工具声明，非逐请求捕获的OpenAI／vLLM线格式 |
+| output/research/four-directions/quality-corrections.json | 一处人工审核更正与源码证据，不改原封签 |
+| output/research/four-directions/failure-focus.json | 7份失败焦点的patch／trace／双JUnit／依赖与原源码绑定 |
+| output/research/minimal-policy | 上述包对应的60项原始执行、测试、依赖与完整成本 |
 
-训练样本至少保存任务／仓库／base_commit、源码与补丁身份、模型与模板、按序角色和工具调用、观察、审核标签
-工具输出作上下文，独立verifier和人工审阅不混进assistant目标；思考段、工具参数和loss mask按实际模型模板验证
+60条来自30道旧开发题的候选／对照，覆盖4个仓库，全部已暴露
+15条原生及独立测试阳性中，13条支持有限修复，2条有明确需求缺口；7条失败完成有限语义焦点，其余38条失败只有端点／错误盘点
+13条支持不等于13条完整SFT成功轨迹，部分存在修改测试、临时脚本、重复提交、缺最终响应或仅打印检查
+quality与training_use分开，现有sft_ready、rl_ready、train_targets_verified全部为false
 
-##### RL需要什么奖励
+warning更正来自旧审核漏掉两处位置参数调用，AST复核从11处补到13处，最终候选遗漏对应文件
+旧selection／closure／annotations保持原样，当前标签由quality-corrections覆盖，支持5对8及拒绝结论不变
 
-奖励以可信环境中的最终补丁行为为核心，结合原生测试、独立副本验证、需求覆盖和回归
-自写测试为绿、脚本退出0、无参数异常、patch非空都不能单独作修复奖励
-保留空patch、超时、依赖失败、skip、验证不一致与成本，避免只在成功子集计算效率
-公开训练仓库与隐藏测试仓库不同，训练与评估按任务／仓库／基础提交分组，旧暴露题不能重切成“未见集”
+这60条包与上述19配对不是同一批样本，不能直接合并为独立训练集
 
-##### 进入训练前的三个检查点
+##### 数据身份、去重与转换
 
-1. 确认可训练checkpoint与比赛CT推理底座的adapter兼容，能保存、重载并在部署链中实际改变输出
-2. 核对角色、工具schema、调用序列、思考边界和assistant loss mask，不把观察当回答
-3. 固定0.17 Harness与可信评估划分，先做小规模base对adapter比较，再决定扩大训练
+episode_id绑定研究、条件、任务与seed；provenance绑定原trace、源码快照、实际配置与protocol
+source_atif保留完整解析对象，已做gzip／JSON往返比较，不声称保留模型原始token或原始调用字符串
 
-本仓库目前提供研究与评测基础，不提供已验证的SFT／RL训练实现
-模型、数据量和训练资源由用户后续另行决定，本轮不启动训练
+task_group将同题全部条件、步骤、探针、seed与补丁放在同组，repository_group支持跨仓库隔离
+当前30题只能标记development_exposed_not_evaluation，不按步骤随机切出验证集
+patch_dedup_group只对非空最终patch使用SHA，无patch逐episode保留；已有两组非空patch各重复两次，执行与成本均保留，不能借另一条轨迹的JUnit
+
+函数调用和回应按顺序、调用身份关联；ATIF的call_id不保证是原始线协议ID
+系统／用户／Agent内容、tool_calls与observation是轨迹；工具输出作上下文，不当assistant训练目标
+quality人工观察、outcome独立验证、依赖回执和failure-focus用于筛选及审计，不注入solver提示或目标回答
+不能用独立verifier为同一个Agent挑选候选答案
+
+代理message可能混有思考和最终回答，后台摘要／压缩不保证全在ATIF中
+工具声明尚未证明与训练框架所需JSON schema或逐请求格式一致，不能直接把gzip当作TRL训练messages
+
+##### SFT与RL的进入条件
+
+SFT优先选择审核通过且工作流合规的定位→编辑→真实验证片段，单独记录选择理由，不把整条成功轨迹的每一步都当正确动作
+负轨迹可用于错误恢复或偏好比较，但未审查失败不伪造根因，也不直接作为成功示范
+
+RL奖励以可信环境中的最终补丁行为为核心，结合原生测试、独立副本、需求覆盖和回归
+自写测试绿、退出0、无参数错误、patch非空不能单独作修复奖励；保留空patch、超时、依赖失败、skip、验证不一致与全部成本
+公开训练仓库与隐藏测试仓库不同，既有115/129暴露清单只是历史盘点，未重扫后续记录；12题保留与2题同提交排除记录不构成今天未见集认证
+
+进入训练前完成三个检查
+1. 核验训练checkpoint与比赛CT部署侧adapter兼容，保存、重载后在精确部署链中实际改变输出
+2. 用实际tokenizer／chat template核对角色、工具调用、思考边界与assistant loss mask，先用自造样本做转换资格
+3. 固定0.17 Harness、共同预算、分组划分与可信行为奖励，先做小规模base对adapter比较
+
+compressed-tensors评分基座不是已验证训练底座，离线trace不是已验证RL交互环境
+模型、数据量与资源由用户后续决定，本轮不启动训练

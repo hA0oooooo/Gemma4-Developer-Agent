@@ -81,7 +81,7 @@ python src/check_patch.py --task-id requests_7205 --patch output/manual-validati
 
 当前采用官方 subprocess sandbox 的本地适配：已修复 src 布局导入，依赖装入各任务 venv，但没有 Docker daemon 权限，不宣称与 Kaggle 容器完全等价。该方法适合快速排错与比较策略，最终泛化成绩仍需官方评分
 
-批量研究使用 src/run_experiments.py，参数与分类研究计划见 [优化台账](../research/optimizations.md)；不需要启动 Notebook 或正式提交即可获得本地反馈
+批量研究使用 src/run_experiments.py，参数与分类研究计划见 [优化台账](https://github.com/hA0oooooo/Gemma4-Developer-Agent/blob/d75693be80c6a6b15d1af23c271f03b7a9297d37/agent/research/optimizations.md)；不需要启动 Notebook 或正式提交即可获得本地反馈
 
 来源：agent/harness/official_guide.md §7–9，下载日期 2026-10-01
 
@@ -90,12 +90,12 @@ python src/check_patch.py --task-id requests_7205 --patch output/manual-validati
 已有模型补丁可以直接复核，不必每次重新运行模型；清单包含 label、task_id、patch 路径，已有四份真实补丁的示例保存在 output/research/audit-throughput/plan.json
 
 ```bash
-python src/audit_patches.py --plan output/research/audit-throughput/plan.json --output output/manual-patch-audits --workers 4
+python src/audit_patches.py --plan output/research/audit-throughput/plan.json --output output/manual-patch-audits --workers 1
 ```
 
-每项都在不同干净副本使用官方 verify_task，保留原生 JUnit 与 task_venv 依赖记录；该入口不生成新补丁，不启动模型，不消耗 Kaggle 提交次数。输出目录不能已有需保留的同名结果，默认 workers=1，服务器空闲时可并行
+每项都在不同干净副本使用官方 verify_task，保留原生 JUnit 与 task_venv 依赖记录；该入口不生成新补丁，不启动模型，不消耗 Kaggle 提交次数。输出目录不能已有需保留的同名结果，使用workers=1；同一task_id的两臂并行check_patch会碰撞，不因GPU空闲提高该审计并发
 
-当前同四份补丁按两次串行、两次四路并行复核，16 次结论一致，验证墙钟吞吐约 3.47 倍；范围与原始证据见 [开发验证效率](../research/evaluation_efficiency.md)，不能将其描述为 Agent 修复率或官方分数提高
+当前同四份补丁按两次串行、两次四路并行复核，16 次结论一致，验证墙钟吞吐约 3.47 倍；范围与原始证据见 [开发验证效率](https://github.com/hA0oooooo/Gemma4-Developer-Agent/blob/d75693be80c6a6b15d1af23c271f03b7a9297d37/agent/research/evaluation_efficiency.md)，不能将其描述为 Agent 修复率或官方分数提高
 
 ##### 可选的共享服务运行保护
 

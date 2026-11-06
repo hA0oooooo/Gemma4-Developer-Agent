@@ -51,32 +51,18 @@
 
 ##### 环境审计如何改变解释
 
-当前官方公开V31的4个轮包及640个安装Python源码成员与本地一致，vLLM选取的10份相关源码也一致；没有发现这些路径版本漂移
+公开SDK源码一致，但本地A6000／TP1／eager／依赖与公开示例仍有差异，隐藏评分器完整运行条件未知
+没有发现足以撤销旧REJECT的环境证据；完整比较、工作人员关于训练／测试仓库隔离的说明与来源统一见[execution_alignment.md](execution_alignment.md)
 
-但本地A6000／TP1／eager／固定seed、隔离依赖和checkout导入修正，与官方公开示例不同。SDK文件相同不等于实际运行条件相同；生产评分器完整镜像、依赖、命令与tokenizer身份仍无法取得
+##### 后续入口
 
-[工作人员说明](https://www.kaggle.com/competitions/gemma-4-developer-agent/discussion/747248)公开训练仓库不出现在隐藏测试集，并确认隐藏题在参考修复下可通过。我们没有接触隐藏数据或执行gold实验。公开四仓库上的改进最多是开发证据，不能外推为隐藏得分或把公开依赖缺陷直接归因给隐藏环境
-
-精确环境矩阵与4项CPU参数校准见execution_alignment.md。本轮没有发现足以翻转旧REJECT的新环境证据，不重评分、重跑或改SDK
-
-##### 转向微调的交接
-
-冻结0.17四文件包和相同测试预算，训练后先比较同一Harness下base与adapter，再考虑是否调整架构，避免无法归因
-
-现有自有轨迹包为four-directions/trajectories.jsonl.gz：60条、30道暴露题，质量／数据规范见training_trajectories.md。既有训练就绪标记均为false，本轮未重新导出、筛选或训练，不把13条有限源码支持直接当13条SFT完整成功样本
-
-优先补齐三个门槛：训练侧checkpoint与比赛CT部署侧的adapter兼容；角色／工具调用／观察／思考边界及assistant loss mask正确；训练与评估按任务、仓库和基础提交隔离且有可信行为奖励。公开题已大量暴露，保留12题不自动解封，不能把129题重新随机切分后称未见集
-
-SFT目标可以是经审核的定位→编辑→真实验证轨迹；工具输出、人工审核和独立verifier只作上下文或审计，不混进assistant目标。缺后台摘要／原始token时标记转换与缺口，不伪造完整历史
-
-模型选择、LoRA／QLoRA参数和资源另设小Goal决定。compressed-tensors推理权重不自动等同已验证训练底座；adapter可加载之后仍须证明输出实际改变、能保存重载、精确部署链正常，才讨论能力提升
-
-RL再看真实交互环境和reward是否可信，不能用模型自写的错误断言、导入成功或有噪声的resolved直接作真奖励。微调同样可能无效，先做有限、可归因的对照
+模型训练的数据难点、轨迹身份、转换与奖励要求统一维护在[training_handoff.md](training_handoff.md)
+环境细节统一维护在[execution_alignment.md](execution_alignment.md)，历史原文见[history.md](history.md)
 
 ##### 收尾与导航
 
-本轮上限2026-11-06T06:16:48Z至10:16:48Z，没有扩展旧研究时钟。原结果、失败、source-review更正和两个受保护ZIP不变，不推送、不提交、不训练、不新建监控
+本轮上限2026-11-06T06:16:48Z至10:16:48Z，没有扩展旧研究时钟。原结果、失败、source-review更正和两个受保护ZIP不变；此处为研究收尾快照，不代表后续文档提交授权
 
 bounded-auto-research已更新公开版本身份、重复设计、环境审计、停止与训练交接规则，并通过skill-creator校验；本地缺PyYAML的校验失败保留，随后用现有Linux解释器验证临时副本，无安装依赖
 
-当前入口为本文件、execution_alignment.md和training_trajectories.md。原始审计、规则对照、来源与完成核验放output/research/harness-closeout，不继续自动推进Harness研究
+当前入口为本文件、execution_alignment.md和training_handoff.md。原始审计、规则对照、来源与完成核验放output/research/harness-closeout，不继续自动推进Harness研究

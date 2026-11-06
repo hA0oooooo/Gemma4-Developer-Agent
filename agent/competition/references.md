@@ -73,13 +73,13 @@ Google / DeepMind 的一般 ADK 文档不能自动替代本比赛受限配置 sc
 
 [Scaling Test-Time Compute for Agentic Coding](https://arxiv.org/html/2604.16529v1) 的原始论文研究以短结构化轨迹总结进行候选选择和后续尝试复用，而不是简单追加单次思考 token。可借鉴“保留假设、进展、失败原因，剔除低信息输出”的表示思路；其前沿模型和其他基准结果不能直接迁移为 Gemma4 分数，也不能把官方 verifier 标签作为后续同任务模型输入
 
-新增来源仅形成 [分类优化台账](../research/optimizations.md) 中的假设，正式正向计数仍须由本项目对照实验产生
+新增来源仅形成 [分类优化台账](https://github.com/hA0oooooo/Gemma4-Developer-Agent/blob/d75693be80c6a6b15d1af23c271f03b7a9297d37/agent/research/optimizations.md) 中的假设，正式正向计数仍须由本项目对照实验产生
 
 [SWE-Edit](https://arxiv.org/html/2604.26102v1) 将源码查看、修复推理和格式化编辑区分，提示一种可能机制：定位产生的大量上下文与精确编辑要求互相干扰。当前只借鉴无需训练的职责和接口设计，不采用其训练方案，也不把论文在其他模型上的收益当作 Gemma 成果；已有三阶段对照与小片段编辑实验分别检验相关机制
 
 [LocAgent](https://aclanthology.org/2025.acl-long.426/) 使用代码图辅助定位，适合作为后续图检索对照的来源。定位正确率与最终任务修复率是不同指标，不能因论文的定位结果就默认本比赛的图工具优于词法和符号查看；目前尚未据此登记正向点
 
-进一步读取 [LocAgent 方法原文](https://arxiv.org/html/2503.09089v2) 后，本地只借鉴“符号检索、关系遍历、源码确认”的分工；论文的完整实体源码接口与当前比赛的 induced-subgraph 接口不同，不直接照搬名称或训练结果。graph-localization 对照使用现有公开图，不训练或重写官方输入，具体 API 边界见 [上下文与接口](../research/context_and_tools.md)
+进一步读取 [LocAgent 方法原文](https://arxiv.org/html/2503.09089v2) 后，本地只借鉴“符号检索、关系遍历、源码确认”的分工；论文的完整实体源码接口与当前比赛的 induced-subgraph 接口不同，不直接照搬名称或训练结果。graph-localization 对照使用现有公开图，不训练或重写官方输入，具体 API 边界见 [上下文与接口](https://github.com/hA0oooooo/Gemma4-Developer-Agent/blob/d75693be80c6a6b15d1af23c271f03b7a9297d37/agent/research/context_and_tools.md)
 
 已静态下载并检查 [Gemma 4 AST Graph-Augmented SWE Multi-Agent System](https://www.kaggle.com/code/avikdas567/gemma-4-ast-graph-augmented-swe-multi-agent-system)，78,779 字节、39 个单元，SHA256 为 2f45816df9482c3a73760a030e5a6f4ed6d5d50b2309fe54b7686ac5172f7a9d。未执行 Notebook，不使用 EDA 输出或参考补丁；其根 Agent 加分析子 Agent 的结构接近官方示例，没有取得足以证明本项目收益的配对轨迹
 
