@@ -1,0 +1,137 @@
+{
+  "purpose": "Fixed ten-task development screen, not a hidden-score estimate or untouched final holdout",
+  "selection_seed": "gemma-development-2026-10-19",
+  "default_execution_seed": 20261019,
+  "selection": "SHA256 ranking without replacement within repository; no result, difficulty, patch, test_patch or description-length filtering",
+  "population_by_repository": {
+    "fastapi/fastapi": 67,
+    "psf/requests": 13,
+    "Textualize/rich": 48,
+    "encode/httpx": 1
+  },
+  "eligible_by_repository": {
+    "fastapi/fastapi": 60,
+    "psf/requests": 7,
+    "Textualize/rich": 42,
+    "encode/httpx": 1
+  },
+  "quota_by_repository": {
+    "fastapi/fastapi": 4,
+    "Textualize/rich": 3,
+    "psf/requests": 2,
+    "encode/httpx": 1
+  },
+  "sampling_boundary": "Random within the remaining public pool after conservative prior-plan/execution exclusions; not random from all public tasks or private test repositories",
+  "weighted_metric": "Repository poststratification to eligible_by_repository, diagnostic only; not an unbiased estimate for the hidden set or the entire129-task population",
+  "prior_plan_or_execution_ids": [
+    "fastapi_14873",
+    "fastapi_14962",
+    "fastapi_14964",
+    "fastapi_15661",
+    "fastapi_9555",
+    "requests_7205",
+    "requests_7315",
+    "requests_7427",
+    "requests_7505",
+    "rich_3061",
+    "rich_3472",
+    "rich_4006",
+    "rich_4070"
+  ],
+  "reserved_holdout_ids": [
+    "fastapi_14482",
+    "fastapi_15785",
+    "requests_6592",
+    "requests_7502",
+    "rich_3006",
+    "rich_3105"
+  ],
+  "reserved_holdout_manifest_sha256": "c60e37bf6b1600d5a3f53cd51b0d453cdb8ba015bf1b63a60a0e30cd3990bbc3",
+  "public_metadata_sha256": "8ec1376e8d21d76aaf3bf7afd0b74b668ac8117321c9c28bc3b25661c92f17c3",
+  "selection_program_sha256": "a75706ca8d4e544745b9bc4f6333435b053248f428a633cf0ae418f1e06359cc",
+  "tasks": [
+    {
+      "instance_id": "rich_3469",
+      "repo": "Textualize/rich",
+      "base_commit": "c478588f3c228a4e86741a057c42b452d7bc6bce",
+      "description_sha256": "044312ca2639804c606120b74c48348f304f15ca200eafed842fe69ad5b76284",
+      "description_characters_after_html_comments": 75,
+      "contains_external_link": true
+    },
+    {
+      "instance_id": "fastapi_14448",
+      "repo": "fastapi/fastapi",
+      "base_commit": "c57ac7bdf3613798c94caceff562a41fa16d4a2d",
+      "description_sha256": "12d7c9e557e6e809fd1d4345eab6f948466962bc21f306e0fe8b69de3c8f6610",
+      "description_characters_after_html_comments": 1226,
+      "contains_external_link": true
+    },
+    {
+      "instance_id": "fastapi_14266",
+      "repo": "fastapi/fastapi",
+      "base_commit": "2cf04ee30db9df2db04a5b1e0d2c625dfbf1a211",
+      "description_sha256": "13b58b9f5058c1effbfc894eed03d0afc5f610a3fc6dd070d73fb4456dec01e2",
+      "description_characters_after_html_comments": 247,
+      "contains_external_link": true
+    },
+    {
+      "instance_id": "fastapi_14487",
+      "repo": "fastapi/fastapi",
+      "base_commit": "4a98a66778987648d2195155c9cbe0824d67b02a",
+      "description_sha256": "ed1deb46cbcf4ba85eeedef916f1d22183e71619e374cfcc3ad8d16d064fdd49",
+      "description_characters_after_html_comments": 204,
+      "contains_external_link": false
+    },
+    {
+      "instance_id": "rich_3471",
+      "repo": "Textualize/rich",
+      "base_commit": "e2a982d5ea747f0deb7f78e8eaa5b4be7d9194cf",
+      "description_sha256": "a1dbba47d25327bcc1c7b76d7c004b6e67a29f9260830a9af647175eb7a8041a",
+      "description_characters_after_html_comments": 86,
+      "contains_external_link": true
+    },
+    {
+      "instance_id": "fastapi_9425",
+      "repo": "fastapi/fastapi",
+      "base_commit": "0bdc3ca3732e3742e094bea2b320e9774659ac38",
+      "description_sha256": "d70b96e8488a4d67f5c08de9d0319e8db1657912720fa029c24ad74ab087d673",
+      "description_characters_after_html_comments": 235,
+      "contains_external_link": false
+    },
+    {
+      "instance_id": "requests_6644",
+      "repo": "psf/requests",
+      "base_commit": "382fc2c0c6c0ef0874bc65bc1175f97c073e5086",
+      "description_sha256": "bbc61379a6d293c7deb71f215eba9dcfba76673b8432b43859ff17a4800112b3",
+      "description_characters_after_html_comments": 295,
+      "contains_external_link": false
+    },
+    {
+      "instance_id": "requests_6589",
+      "repo": "psf/requests",
+      "base_commit": "7a13c041dbef42f9f3feb14110f02626f6892e9a",
+      "description_sha256": "60b61eb2b26e1135174dd59ddc4e29b2d7fe2b5e255b723e9085b36407663d04",
+      "description_characters_after_html_comments": 237,
+      "contains_external_link": false
+    },
+    {
+      "instance_id": "httpx_3672",
+      "repo": "encode/httpx",
+      "base_commit": "4acf5c2c37714cc63b5cf71b3e284fca83c90311",
+      "description_sha256": "88b6d5135ef29b988ba3c21596c4215efaad62379337b6749be4c8c7b26c4487",
+      "description_characters_after_html_comments": 243,
+      "contains_external_link": false
+    },
+    {
+      "instance_id": "rich_3676",
+      "repo": "Textualize/rich",
+      "base_commit": "2b5d648b2c62960deb6439f4204ed8fa6eb3cf7b",
+      "description_sha256": "a9668a4362d63ecec03005f2df78008f7d248d81b14c5929ec32a1f63187f7b4",
+      "description_characters_after_html_comments": 42,
+      "contains_external_link": false
+    }
+  ],
+  "policy": "Keep all ten tasks and failures; no reroll after outcomes; this panel becomes development data after use; preserve six independent holdout tasks",
+  "answer_fields_used_for_selection": false,
+  "official_score_claimed": false
+}

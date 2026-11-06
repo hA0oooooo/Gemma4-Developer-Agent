@@ -1,0 +1,389 @@
+{
+  "purpose": "Fixed ten-task development screen, not a hidden-score estimate or untouched final holdout",
+  "selection_seed": "gemma-development-expansion-20261020",
+  "default_execution_seed": 20261020,
+  "selection": "SHA256 ranking without replacement within repository; no result, difficulty, patch, test_patch or description-length filtering",
+  "population_by_repository": {
+    "fastapi/fastapi": 67,
+    "psf/requests": 13,
+    "Textualize/rich": 48,
+    "encode/httpx": 1
+  },
+  "eligible_by_repository": {
+    "fastapi/fastapi": 49,
+    "psf/requests": 6,
+    "Textualize/rich": 35,
+    "encode/httpx": 1
+  },
+  "quota_by_repository": {
+    "fastapi/fastapi": 15,
+    "Textualize/rich": 10,
+    "psf/requests": 4,
+    "encode/httpx": 1
+  },
+  "sampling_boundary": "Random within the remaining public pool after conservative prior-plan/execution exclusions; not random from all public tasks or private test repositories",
+  "weighted_metric": "Repository poststratification is diagnostic only; retained familiar core and public repositories prevent unbiased hidden-score inference",
+  "prior_plan_or_execution_ids": [
+    "fastapi_14873",
+    "fastapi_14962",
+    "fastapi_14964",
+    "fastapi_15661",
+    "fastapi_9555",
+    "requests_7205",
+    "requests_7315",
+    "requests_7427",
+    "requests_7505",
+    "rich_3061",
+    "rich_3472",
+    "rich_4006",
+    "rich_4070"
+  ],
+  "reserved_holdout_ids": [
+    "fastapi_14099",
+    "fastapi_14258",
+    "fastapi_14262",
+    "fastapi_14360",
+    "fastapi_14482",
+    "fastapi_14616",
+    "fastapi_14791",
+    "fastapi_14978",
+    "fastapi_14986",
+    "fastapi_15280",
+    "fastapi_15589",
+    "fastapi_15785",
+    "fastapi_9753",
+    "requests_6592",
+    "requests_7309",
+    "requests_7502",
+    "rich_2943",
+    "rich_3006",
+    "rich_3105",
+    "rich_3180",
+    "rich_3470",
+    "rich_3777",
+    "rich_3882",
+    "rich_4075"
+  ],
+  "reserved_holdout_manifest_sha256": "c60e37bf6b1600d5a3f53cd51b0d453cdb8ba015bf1b63a60a0e30cd3990bbc3",
+  "public_metadata_sha256": "8ec1376e8d21d76aaf3bf7afd0b74b668ac8117321c9c28bc3b25661c92f17c3",
+  "selection_program_sha256": "a75706ca8d4e544745b9bc4f6333435b053248f428a633cf0ae418f1e06359cc",
+  "tasks": [
+    {
+      "instance_id": "requests_7433",
+      "repo": "psf/requests",
+      "base_commit": "0b401c76b6e80a4eecf3c690085b2553f6e261ca",
+      "description_sha256": "2753a02000cf17c5258bc23b9a91257403e57b34dcd934adbe3956b0523444db",
+      "description_characters_after_html_comments": 498,
+      "contains_external_link": false
+    },
+    {
+      "instance_id": "httpx_3672",
+      "repo": "encode/httpx",
+      "base_commit": "4acf5c2c37714cc63b5cf71b3e284fca83c90311",
+      "description_sha256": "88b6d5135ef29b988ba3c21596c4215efaad62379337b6749be4c8c7b26c4487",
+      "description_characters_after_html_comments": 243,
+      "contains_external_link": false
+    },
+    {
+      "instance_id": "fastapi_14361",
+      "repo": "fastapi/fastapi",
+      "base_commit": "5265c4f5cb4d8fb4fb5015bccf1a6de8f3fc6044",
+      "description_sha256": "e11ab2fe38a6dfc974e0f407059b6bdd6428c1a53ad5bfff7e5f11b36ab35b2f",
+      "description_characters_after_html_comments": 96,
+      "contains_external_link": false
+    },
+    {
+      "instance_id": "fastapi_5624",
+      "repo": "fastapi/fastapi",
+      "base_commit": "c6487ed632056e450d844846a1b63be551a3cbc6",
+      "description_sha256": "a58f8d79e910e4d84b3a4e0eae50deddfc2db24fe1e4194e20c97313450e914e",
+      "description_characters_after_html_comments": 63,
+      "contains_external_link": false
+    },
+    {
+      "instance_id": "fastapi_14605",
+      "repo": "fastapi/fastapi",
+      "base_commit": "6b53786f626db95a42fd0f66afd360bab161f4b1",
+      "description_sha256": "5a5c8f083ec8370091efcd55028c4869bfee6b4b999ae836ba490bb4e8eb026c",
+      "description_characters_after_html_comments": 242,
+      "contains_external_link": true
+    },
+    {
+      "instance_id": "fastapi_9425",
+      "repo": "fastapi/fastapi",
+      "base_commit": "0bdc3ca3732e3742e094bea2b320e9774659ac38",
+      "description_sha256": "d70b96e8488a4d67f5c08de9d0319e8db1657912720fa029c24ad74ab087d673",
+      "description_characters_after_html_comments": 235,
+      "contains_external_link": false
+    },
+    {
+      "instance_id": "fastapi_14448",
+      "repo": "fastapi/fastapi",
+      "base_commit": "c57ac7bdf3613798c94caceff562a41fa16d4a2d",
+      "description_sha256": "12d7c9e557e6e809fd1d4345eab6f948466962bc21f306e0fe8b69de3c8f6610",
+      "description_characters_after_html_comments": 1226,
+      "contains_external_link": true
+    },
+    {
+      "instance_id": "rich_3675",
+      "repo": "Textualize/rich",
+      "base_commit": "edc6b0a39b6df1c0e26d409bb5c5eda7149b2de6",
+      "description_sha256": "e6e5bd894970416a63c474874fc942030255fd5e9cc6a5ef8b268618d6cd54de",
+      "description_characters_after_html_comments": 166,
+      "contains_external_link": true
+    },
+    {
+      "instance_id": "fastapi_15030",
+      "repo": "fastapi/fastapi",
+      "base_commit": "48d58ae3b6ef4ded5a4794618c00345667256d98",
+      "description_sha256": "988a8d178da78eeaaf056ee02be623b7dd29d76c62f2552309eeda65561915ec",
+      "description_characters_after_html_comments": 148,
+      "contains_external_link": false
+    },
+    {
+      "instance_id": "rich_3676",
+      "repo": "Textualize/rich",
+      "base_commit": "2b5d648b2c62960deb6439f4204ed8fa6eb3cf7b",
+      "description_sha256": "a9668a4362d63ecec03005f2df78008f7d248d81b14c5929ec32a1f63187f7b4",
+      "description_characters_after_html_comments": 42,
+      "contains_external_link": false
+    },
+    {
+      "instance_id": "fastapi_14455",
+      "repo": "fastapi/fastapi",
+      "base_commit": "603df6e36f59cc4a3e189f506b8f36d1e816c3ac",
+      "description_sha256": "4b271d1cec1b5a99283e18e84dc41c8e728be8e5fbd33975e0ec15bfc8fd5ab7",
+      "description_characters_after_html_comments": 283,
+      "contains_external_link": true
+    },
+    {
+      "instance_id": "rich_3938",
+      "repo": "Textualize/rich",
+      "base_commit": "05ff970926cbd0b5d0acb6fc18cdbd1fc971e582",
+      "description_sha256": "aa3bdeeaeadcac1cca4dfa7557b18c1f0becc450f98cdfe8f1c7f2429e51a223",
+      "description_characters_after_html_comments": 89,
+      "contains_external_link": true
+    },
+    {
+      "instance_id": "fastapi_14266",
+      "repo": "fastapi/fastapi",
+      "base_commit": "2cf04ee30db9df2db04a5b1e0d2c625dfbf1a211",
+      "description_sha256": "13b58b9f5058c1effbfc894eed03d0afc5f610a3fc6dd070d73fb4456dec01e2",
+      "description_characters_after_html_comments": 247,
+      "contains_external_link": true
+    },
+    {
+      "instance_id": "fastapi_11355",
+      "repo": "fastapi/fastapi",
+      "base_commit": "811fa898752e7f5697733a2958ff79ad8dfb5276",
+      "description_sha256": "a0befe396e4c57ae07f1e3f5a5973c717c48c899f1eb043bb46f1f3fb0804bee",
+      "description_characters_after_html_comments": 299,
+      "contains_external_link": true
+    },
+    {
+      "instance_id": "fastapi_5077",
+      "repo": "fastapi/fastapi",
+      "base_commit": "930b27e5fa32ce150ddcea61f0c913435ae71c83",
+      "description_sha256": "07fa3ca85eb583233bf5bb64c84480645d3c8b27afcd105cbe679a9f204d0a7e",
+      "description_characters_after_html_comments": 2679,
+      "contains_external_link": true
+    },
+    {
+      "instance_id": "fastapi_14430",
+      "repo": "fastapi/fastapi",
+      "base_commit": "cff2236dacb7aedcaf2d2de0873cfbc9bb2b897a",
+      "description_sha256": "85be4cb8c18139e60c7c49de4d0ec7d98a5e4f50c17e165b34f22ecacb0de830",
+      "description_characters_after_html_comments": 335,
+      "contains_external_link": true
+    },
+    {
+      "instance_id": "fastapi_14487",
+      "repo": "fastapi/fastapi",
+      "base_commit": "4a98a66778987648d2195155c9cbe0824d67b02a",
+      "description_sha256": "ed1deb46cbcf4ba85eeedef916f1d22183e71619e374cfcc3ad8d16d064fdd49",
+      "description_characters_after_html_comments": 204,
+      "contains_external_link": false
+    },
+    {
+      "instance_id": "requests_6589",
+      "repo": "psf/requests",
+      "base_commit": "7a13c041dbef42f9f3feb14110f02626f6892e9a",
+      "description_sha256": "60b61eb2b26e1135174dd59ddc4e29b2d7fe2b5e255b723e9085b36407663d04",
+      "description_characters_after_html_comments": 237,
+      "contains_external_link": false
+    },
+    {
+      "instance_id": "rich_3296",
+      "repo": "Textualize/rich",
+      "base_commit": "fde5d6eee3b0437eaecdcbf6f8b11aeab3a5d503",
+      "description_sha256": "ed0e6d81e3105d50e38138f8fe37e22ea04847e1391fe4b3146779afb74b2bb8",
+      "description_characters_after_html_comments": 818,
+      "contains_external_link": true
+    },
+    {
+      "instance_id": "requests_6644",
+      "repo": "psf/requests",
+      "base_commit": "382fc2c0c6c0ef0874bc65bc1175f97c073e5086",
+      "description_sha256": "bbc61379a6d293c7deb71f215eba9dcfba76673b8432b43859ff17a4800112b3",
+      "description_characters_after_html_comments": 295,
+      "contains_external_link": false
+    },
+    {
+      "instance_id": "fastapi_14512",
+      "repo": "fastapi/fastapi",
+      "base_commit": "1fcec88ad2df4541b6a81c4786c4d039dc745e1e",
+      "description_sha256": "33c782727b81f5dfe8d4c099c3ab1a64df42761ce909a7f93203c4da792dcb19",
+      "description_characters_after_html_comments": 289,
+      "contains_external_link": true
+    },
+    {
+      "instance_id": "requests_6757",
+      "repo": "psf/requests",
+      "base_commit": "0e322af87745eff34caffe4df68456ebc20d9068",
+      "description_sha256": "77026c2d101f038577718e0fd53eeed23f56dd8dc7fbf860b334e3e98b4fa653",
+      "description_characters_after_html_comments": 268,
+      "contains_external_link": false
+    },
+    {
+      "instance_id": "rich_3935",
+      "repo": "Textualize/rich",
+      "base_commit": "fe55a131c2780fa856464ad04d7d6dc8a1079b72",
+      "description_sha256": "6d50624082250132045026951ea922028b35c0fe24de3067ff09b9e1a9fffa91",
+      "description_characters_after_html_comments": 75,
+      "contains_external_link": true
+    },
+    {
+      "instance_id": "rich_3067",
+      "repo": "Textualize/rich",
+      "base_commit": "1ad6f73a4d1d3b40ac3f879feccfaad66412bd1d",
+      "description_sha256": "ea985d37520edcb0519908a6ae8c0907e5729c6c10d88614e7a170afbbb7846e",
+      "description_characters_after_html_comments": 582,
+      "contains_external_link": true
+    },
+    {
+      "instance_id": "fastapi_14583",
+      "repo": "fastapi/fastapi",
+      "base_commit": "6513d4daa16a536d17743de6a292f49bd06388a4",
+      "description_sha256": "77efb35fdc47e88e9d6c3e23860c5d2458da72ec01a50f05024f58cdfa58fb5c",
+      "description_characters_after_html_comments": 104,
+      "contains_external_link": false
+    },
+    {
+      "instance_id": "rich_3471",
+      "repo": "Textualize/rich",
+      "base_commit": "e2a982d5ea747f0deb7f78e8eaa5b4be7d9194cf",
+      "description_sha256": "a1dbba47d25327bcc1c7b76d7c004b6e67a29f9260830a9af647175eb7a8041a",
+      "description_characters_after_html_comments": 86,
+      "contains_external_link": true
+    },
+    {
+      "instance_id": "fastapi_14485",
+      "repo": "fastapi/fastapi",
+      "base_commit": "60699f306b67dc1f4918ebea17f04d7a48cda645",
+      "description_sha256": "8259186a7b07d7fc2131e42f59d0144a097ce33a75273491a277153be489a0b3",
+      "description_characters_after_html_comments": 317,
+      "contains_external_link": true
+    },
+    {
+      "instance_id": "rich_3130",
+      "repo": "Textualize/rich",
+      "base_commit": "720800e6930d85ad027b1e9bd0cbb96b5e994ce3",
+      "description_sha256": "452bde079727e28fb510b51d360e3db7a652977f698f6e74a648ce1e2404c16c",
+      "description_characters_after_html_comments": 878,
+      "contains_external_link": true
+    },
+    {
+      "instance_id": "rich_4077",
+      "repo": "Textualize/rich",
+      "base_commit": "58ac15120fe254886c10d6253667733c83604cb4",
+      "description_sha256": "44860aa2cc716bfa3e4fe9ee43f18663fc8574ebbb0574df3e3f8b99750f29e9",
+      "description_characters_after_html_comments": 66,
+      "contains_external_link": true
+    },
+    {
+      "instance_id": "rich_3469",
+      "repo": "Textualize/rich",
+      "base_commit": "c478588f3c228a4e86741a057c42b452d7bc6bce",
+      "description_sha256": "044312ca2639804c606120b74c48348f304f15ca200eafed842fe69ad5b76284",
+      "description_characters_after_html_comments": 75,
+      "contains_external_link": true
+    }
+  ],
+  "policy": "Keep all thirty tasks and failures; do not reroll; compare to the scored anchor and current failed candidate before touching independent24",
+  "answer_fields_used_for_selection": false,
+  "official_score_claimed": false,
+  "selection_source_sha256": "a033e71eac6a613aa1849449e6bd18af9045e8ffd24ccb9d7796be7854be54a5",
+  "source_tasks_sha256": "e4b3fd60f69dbc2b9213e54eeb9636db78aefe92c1d06269d73d9f5f8f3c8ad6",
+  "legacy_reserved_task_ids": [
+    "fastapi_14482",
+    "fastapi_15785",
+    "requests_6592",
+    "requests_7502",
+    "rich_3006",
+    "rich_3105"
+  ],
+  "panel_size": 30,
+  "selection_method": "Retain the original ten, add twenty metadata-only stratified SHA256 draws; no outcome filtering",
+  "confirmation_manifest_sha256": "1fa338ff205ae7dffa54a18a0ae704f01c55f85db11f6a858e78f297531d43c5",
+  "previously_used_core_ids": [
+    "fastapi_14266",
+    "fastapi_14448",
+    "fastapi_14487",
+    "fastapi_9425",
+    "httpx_3672",
+    "requests_6589",
+    "requests_6644",
+    "rich_3469",
+    "rich_3471",
+    "rich_3676"
+  ],
+  "new_selection_excluded_ids": [
+    "fastapi_14099",
+    "fastapi_14258",
+    "fastapi_14262",
+    "fastapi_14266",
+    "fastapi_14360",
+    "fastapi_14448",
+    "fastapi_14482",
+    "fastapi_14487",
+    "fastapi_14616",
+    "fastapi_14791",
+    "fastapi_14873",
+    "fastapi_14962",
+    "fastapi_14964",
+    "fastapi_14978",
+    "fastapi_14986",
+    "fastapi_15280",
+    "fastapi_15589",
+    "fastapi_15661",
+    "fastapi_15785",
+    "fastapi_9425",
+    "fastapi_9555",
+    "fastapi_9753",
+    "httpx_3672",
+    "requests_6589",
+    "requests_6592",
+    "requests_6644",
+    "requests_7205",
+    "requests_7309",
+    "requests_7315",
+    "requests_7427",
+    "requests_7502",
+    "requests_7505",
+    "rich_2943",
+    "rich_3006",
+    "rich_3061",
+    "rich_3105",
+    "rich_3180",
+    "rich_3469",
+    "rich_3470",
+    "rich_3471",
+    "rich_3472",
+    "rich_3676",
+    "rich_3777",
+    "rich_3882",
+    "rich_4006",
+    "rich_4070",
+    "rich_4075"
+  ]
+}

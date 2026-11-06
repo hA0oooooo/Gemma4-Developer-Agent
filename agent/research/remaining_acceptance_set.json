@@ -1,0 +1,100 @@
+{
+  "state": "reserved_unused_not_a_model_plan",
+  "created_utc": "2026-10-27T21:22:49.973070+00:00",
+  "purpose": "One prospective paired acceptance panel for a future new candidate after its development gate; no present independent-acceptance claim.",
+  "panel_size": 12,
+  "tasks": [
+    {
+      "instance_id": "fastapi_14371",
+      "repo": "fastapi/fastapi",
+      "base_commit": "3fe6522aaed4d36d6a38175a4a8137ee0fc62451"
+    },
+    {
+      "instance_id": "fastapi_14609",
+      "repo": "fastapi/fastapi",
+      "base_commit": "1b3bea8b6be2220cc1544653ea785d2134fcb35b"
+    },
+    {
+      "instance_id": "rich_3718",
+      "repo": "Textualize/rich",
+      "base_commit": "7d36119f8378b36129502c3281a7faffef837e02"
+    },
+    {
+      "instance_id": "fastapi_15800",
+      "repo": "fastapi/fastapi",
+      "base_commit": "f1d750fddad90e2faad6c3cc5c85c7687b787e89"
+    },
+    {
+      "instance_id": "rich_3063",
+      "repo": "Textualize/rich",
+      "base_commit": "368e8ad77c95a6bef8f9d332039091d1417296bc"
+    },
+    {
+      "instance_id": "fastapi_11194",
+      "repo": "fastapi/fastapi",
+      "base_commit": "a7f2dbe976bf72703376f0cd04487bfc4a849f83"
+    },
+    {
+      "instance_id": "fastapi_14794",
+      "repo": "fastapi/fastapi",
+      "base_commit": "464c359bb03f7ba72330198cc9f44df36194837d"
+    },
+    {
+      "instance_id": "fastapi_14186",
+      "repo": "fastapi/fastapi",
+      "base_commit": "6e49dc029541aaa896fa63c47647ccd3f066df67"
+    },
+    {
+      "instance_id": "rich_4079",
+      "repo": "Textualize/rich",
+      "base_commit": "19c67b9a3479841e9133bea94607c89ee931d3fc"
+    },
+    {
+      "instance_id": "fastapi_14246",
+      "repo": "fastapi/fastapi",
+      "base_commit": "7132a690461c2367f22556eb87c2b5eb7d9cfb45"
+    },
+    {
+      "instance_id": "rich_3942",
+      "repo": "Textualize/rich",
+      "base_commit": "c595fa95068dd2c5095d25446b2f0571bc0b3995"
+    },
+    {
+      "instance_id": "rich_3064",
+      "repo": "Textualize/rich",
+      "base_commit": "01b85ac116c4635b6ddb8b488be8254be6df2a84"
+    }
+  ],
+  "order_seed": "remaining-acceptance-reservation-20261028",
+  "ordering": "SHA256 deterministic ordering of the entire12-task eligible remainder; no outcome, patch, test, title, problem length or difficulty selection.",
+  "default_execution_seed": 20261022,
+  "source_tasks_sha256": "e4b3fd60f69dbc2b9213e54eeb9636db78aefe92c1d06269d73d9f5f8f3c8ad6",
+  "exposure_inventory_path": "output/research/generalization/exposure-inventory-20261027-final.json",
+  "exposure_inventory_sha256": "25a55f52e72c89ffa4e8751a48950be52dacd3d28fc89ee5c0fa9e7c3b1531f7",
+  "exposure_source_sha256": "08ab8572ff03a064e309fefc18ddcc5a2df493834dae783e6140bc9333b8a51f",
+  "qualification_sha256": "cd47e9c52bd0e9a253635f493e5025028dbcf4a742d6fd23a251d0e06c81b47d",
+  "population_boundary": {
+    "total_public_tasks": 129,
+    "endpoint_or_trace_ids": 115,
+    "without_endpoint_or_trace": 14,
+    "same_repo_commit_as_referenced_excluded": 2,
+    "reserved_by_repository": {
+      "fastapi/fastapi": 7,
+      "Textualize/rich": 5
+    },
+    "distinct_repo_commit_count": 12
+  },
+  "release_conditions": [
+    "A substantively new candidate must first pass its prospectively frozen development gate.",
+    "Candidate, exact control, Task order, seed, shared budget and acceptance rules must be frozen in a separate model plan before any panel model call.",
+    "Do not use for baseline fishing, prompt/parameter selection, repeating sealed studies or rescuing any rejected candidate.",
+    "All outcomes, empty patches, failures, timeouts and costs must remain in the denominator.",
+    "After any model use, never describe that case as unused or independent for a later revised candidate."
+  ],
+  "evidence_boundary": "No retained record within the declared scan, not proof against unrecorded exposure or pretraining. Same repositories as prior development; not a representative sample of hidden repositories or a Kaggle score estimate.",
+  "problem_text_used_for_selection": false,
+  "answer_fields_used": false,
+  "tasks_or_verifiers_executed_by_reservation": 0,
+  "model_calls_added": 0,
+  "official_requests_added": 0
+}

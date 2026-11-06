@@ -23,9 +23,17 @@
 
 ##### 提交与资源
 
+2026-10-26新核对[官方模型公告](https://www.kaggle.com/competitions/gemma-4-developer-agent/discussion/748287)及[现行规则](https://www.kaggle.com/competitions/gemma-4-developer-agent/overview/prizes)：现允许gemma-4-31b-it-qat-w4a16-ct、gemma-4-12b-it-qat-w4a16-ct、gemma-4-e4b-it-qat-w4a16-ct、gemma-4-e2b-it-qat-w4a16-ct，同一提交所有Agent必须同一基座，不能大小模型混用。早期“只能31B”的说明是当时规则，不再作为当前全赛限制；当前冻结本地研究仍固定31B、不变更运行中SDK或模型
+
+小模型可探索单步能力与更多推理轮次的取舍，不代表更快即提分。公告评论曾反馈12B加载及ParallelAgent兼容问题，工作人员回复最新wheelhouse已修复前者；该回复不是本机资格或评分端日志，不以它为理由原地升级冻结环境，也不直接移植未经核实的并发方案
+
 提交 submission.zip，其根目录必须有 agent.yaml；完整格式与限制见 [Harness 配置](../harness/harness.md)
 
 官方总体 Agent 执行上限 12 小时，含 sandbox setup，不含 patch 验证；单任务预算另见 [评测说明](../harness/evaluation.md)
+
+2026-10-25北京时间以官方ListCompetitionPages只读接口复核：Evaluation正文仍为整批12小时、含sandbox setup／不含patch validation，data-description仍写约120题且public／private均分，模型与工具页仍要求同一基座并列出九个原生工具，L4说明仍为四卡96GB、Internet关闭。原始正文及UTC读取时间在`output/research/behavioral-check/official-pages.json`，请求脚本为同目录`read_official_pages.py`；这是规则正文读取，不是新提交、额度或上传权限检查。普通网页工具本次只有空壳，未据此宣称刷新成功；SDK的is_published输出为false，不将其当作已独立证明的前端发布状态
+
+2026-10-19 重新核对[官方 Evaluation](https://www.kaggle.com/competitions/gemma-4-developer-agent/overview)与[Data](https://www.kaggle.com/competitions/gemma-4-developer-agent/data)：隐藏测试约120题，public/private各约一半，来自私有仓库；不是只对公榜一半分配整批时限。eval_config中的max_time_minutes只约束每题Agent会话，不含该题setup，因此不能简单设6分钟并宣称120题必在12小时完成
 
 官方评测 sandbox 离线，指定模型、硬件与上下文限制见 [Harness 配置](../harness/harness.md)；开发 Notebook 的 GPU 资源不能直接当作官方评测硬件
 
@@ -33,7 +41,7 @@
 
 - [ ] 蒸馏的具体边界需主办方进一步澄清，不能把一般外部模型规则理解为无限制许可
 - [ ] 核实 Notebook 开发 runtime、Internet 与 accelerator 约束；不把总体评测时限当作 Notebook 限额
-- [ ] 核实 public/private split 与排行榜评测规模
+- [x] 隐藏测试约120题、public/private各约一半；官方给的是约数，不据此推断具体题目或保证未来数量
 
 Paper Track 为独立报名入口，不能把论文提交替代主赛 submission，来源见 references.md
 
@@ -48,7 +56,7 @@ Paper Track 为独立报名入口，不能把论文提交替代主赛 submission
 - 公开共享代码应通过比赛论坛或 Notebook，使用允许商业使用的 OSI 许可
 - 不得人工标注或人工生成验证／测试样本预测
 - winner license 为 Apache 2.0，获奖者需要交付训练／推理代码、运行环境及可复现说明
-- 公榜使用 public 测试，最终名次依据 private 测试；数量与比例尚未确认
+- 公榜使用 public 测试，最终名次依据 private 测试；当前Data给出约120题且两部分均分
 - Foundational Rules 在发生冲突时优先于 competition-specific rules
 
 此前认证 API 核验 numToday=0、numAllowedNow=1；这是当时快照，不是永久余额

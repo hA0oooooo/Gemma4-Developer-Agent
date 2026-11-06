@@ -1,0 +1,198 @@
+##### 单段编辑数据与成组预检：完整负结果
+
+本批 output/research/literal-batch 已完整结束、不采用；60项是旧30熟题×候选／精确0.17，不是60道独立题。全部13份严格阳性均按自身原源码、最终patch、原生／独立JUnit、干净副本与三沙箱身份统一审核并封签，metadata_and_coverage_gate=true
+
+严格双验证阳性候选5/30对8/30，有限源码支持5/30对7/30，对照无uncertain。候选独有FastAPI14430／Requests6644，对照独有FastAPI14361／5077／5624／9425；描述性配对p=0.890625不作因果或隐藏公榜预测。control HTTPX3672虽然双方各24过，但移除了parser.complete而遗漏_pool.py240真实旧调用者，按known_contract_gap排除，不改原始resolved／JUnit
+
+含全部失败、空patch与超时的原生总时间8660.15对8693.68秒，完整case wall9144.06对9176.27秒，分别仅减少0.386%／0.351%，不是并行墙钟或纯解码成本。候选session超时19对16、轮数耗尽各1、空patch8对9、参数错误步骤17对51、相同调用重复80对85；描述统计不能单独归因于新工具
+
+完整原trace仅有候选3次Skill脚本尝试、2次可绑定内层接受，全部支持修复均零Skill调用；冻结要求的支持候选最终保留相关批组数为0。格式错误步骤减少不等于修复提升，质量与机制门槛均失败，development_selected=false、independent_acceptance=false、promotion_allowed=false，正式请求0，不提交／补跑此包，保留精确0.17
+
+selection SHA256=eb4b12a475dc1b7419e029b5977563d8aefc0ab6dd4e77b97dcf2e8abc386f8b；failure-analysis SHA256=f21ee1dddfb878d8e490c84276ed09526477f7b1a682b3158e410c45ca022a88。owner stage=completed_development_not_selected、CLI退出0、冻结输入未变，自有owner／CLI／三个API均已退出。seal／finalize成功后不再运行record_notes／collector／report改变引用，端点盘点完整但失败语义只焦点审查两份，不能冒称全部根因已确认
+
+##### 干预、冻结与资格边界
+
+prototype脚本只接收changes字符串，用ast.literal_eval读取(filepath, old, new)列表，顺序暂存、全组锚点与最终Python语法通过后才写回。支持同文件多处、跨文件、新文件、空包标记及非Python文本，不执行任意Python，不是崩溃安全事务或完整路径安全隔离；外层Skill仍需skill_name／file_path／args
+
+candidate保留原0.17全部提示，只在CHECK前插入RELATED EDIT GROUPS并注册Skill：相关两处以上实现修改走Skill，孤立修改仍可原生edit_file。六原生＋四Skill实际十工具，31B CT无adapter、8192／4096、temperature0／top_p0.95、5分钟／24动作／40轮／命令60秒不变，是菜单／数据传输／预检／路由联合干预，不称纯解析器消融或CodeAct复现
+
+工具SHA256=a02d290c0b30919ac35af8740072c84a04e53e01a3c326286f459331ab7d532b；研究ZIP SHA256=fa6558eb4ff25d14d632a624ec44fd6ff76a95c8fda8be042709194fa132ea19；freeze SHA256=9e5f928fd4bc8cce5be1016d7dbffa62301a8f8f4ae8026e86389d7bf4af6fd0。55单元／16元数据／12冻结规则及60项计划先于模型通过，seed20261022，每条件先后每卡各五次，余12题未用
+
+19项CPU组件通过，原prototype与实际路由候选各三分支真实SDK资格通过。实际candidate qualification/receipt.json SHA256=2cd889b654b6705b1ff65b59e6d044466b0112b83de7dee5e26d93f258f72941：错误语义先出现负数断言失败，整组语法拒绝保留原文件，纠正两文件后同一断言通过、双方pytest各3过；后续拒绝和cap3分支均保留真实失败。计费2→7／2→5／2→3、九沙箱互异、六JUnit逐项身份一致。typed脚本模型只证明接线、预算与副本，不证明Gemma格式／语义收益或官方Docker等价
+
+首次打包混入__pycache__被拒，复制入口排除缓存后再冻结；失败副本可恢复保留在/tmp/gemma-literal-prep.07mXtv/packaging-rejected-cache。准备脚本首次绑定旧资格源的失败及修正保留preparation-source.py，不掩盖模型前错误、不重跑模型
+
+2026-10-25T17:34:00 UTC仅启动一次，GPU0／1／2、端口8390—8392，第四卡未占用。startup-observation绑定三个API真实启动／health200／推理POST200及owner／CLI身份，启动证据不代替整题证明。原生服务身份与最终退出已由封签选择器核实，未因SSH断线重启
+
+冻结接纳要求完整门禁及全部阳性统一审核；支持下界≥对照含uncertain上界，并净增≥2且两类全失败成本比≤1.10，或质量不降且两类比≤0.80；另至少两份支持候选真实同批组≥2实现修改最终保留。完整失败成本、机制要求及未知保守处理均未事后放宽
+
+batch_events索引以三CPU原生分支与18错误绑定反例资格；analyze.py以8就绪／12冻结公式／6自身文件保护、1份已有CPU两文件patch绑定、14错误注释拒绝与3不支持状态资格。解析器／索引只是保守证据工具，不自动认定需求相关或最终保留；首轮资格误读不存在的patch路径已改读原result.json.agent_patch并核对原SHA，无补造patch或新verifier运行
+
+##### 源码审查与失败教训
+
+五份支持候选Requests7433／6644、FastAPI14430、Rich3067／4077均使用原生编辑，不给新增Skill记功。Requests7433自己的双方各337过1skip1xfail；修正真实helper缺headers后两条断言通过。Requests6644普通HTTP路径契约有限支持，Digest／代理完整组合未经单独验证，八例只打印，不冒称全面等价。FastAPI14430沿既有shared.UnionType兼容定义处理可选序列，复制简化helper不作真实库行为验证
+
+Rich3067两臂最终655字节patch相同、各自双方82过，但每份trace／JUnit／三沙箱单独审核；候选另跑79项既有测试，对照往自身测试副本加公开tilde例子后80过，测试改动被过滤、data原件未改。辅助输出主要是打印，不当独立断言验证。Rich4077候选真实mock的isatty断言通过，双方各4过；最终附带空诊断文件不算第二处实现，未观察到submit不自动推断超时
+
+control FastAPI14361、5077、5624、9425各自源码和JUnit支持有限题面契约。5624修正helper漏算base的期望后通过，不冒称同一文本失败→成功链；5077三个附带scratch不是实现文件，未观察到后置检查／submit，不借历史相同SHA的JUnit。绿色窄测试、编译／打印、脚本外层success或submit均不能替代源码契约审核
+
+warning-failure-review绑定candidate FastAPI14605自身553字节patch：仅声明警告类，未迁移任何旧warning调用；双方各81过18失败1跳，已审两例明确DID NOT WARN，实际仍发builtin类别。Agent error=None／24动作，不能归因于SSH／pytest故障，也不冒称18项全已语义审核或强加指定父类
+
+batch-retention-failure-review绑定candidate Rich3676：step27同文件四处data／capture／style／render修改真实接受并最终保留，原snapshot、暂存及干净副本应用自身patch的整文件SHA一致。仍把__notes__列表safe_str成Optional[str]，双方各20过1失败1跳，test_notes失败，不计支持或正向机制。step29纠正调用的file_path混入参数分隔且缺skill_name，被INVALID_ARGUMENTS拒绝；此前已见0动作，不能声称只修格式便能救回。上述只有组件Git检查，无新模型／verifier执行
+
+来源是通用参数边界和部分迁移遗漏，不按任务ID／gold定制。[CodeAct原论文](https://proceedings.mlr.press/v235/wang24h.html)的有状态解释器、控制流与训练不等于本数据列表原型，不借论文分数。单编辑Skill、命令恢复、差分与批量中止等旧负结果保留，不改名重试、不使用余题救回
+
+##### 多文件统一差分的完整负结果
+
+固定60/60项已完整结束，owner／CLI及三个API均已退出，CLI exit0、保护输入未变。十二份严格阳性全部按各自当前patch、原生／独立JUnit、三沙箱／依赖及干净副本回执统一审核并封签，metadata_and_coverage_gate=true
+
+严格双验证阳性候选5/30对精确0.17对照7/30，源码支持5/30对6/30；对照HTTPX3672因当前真实调用者缺口排除。候选仅Rich3067独有，对照独有FastAPI5624与Requests7433，描述性配对p=0.875，不是独立验收或隐藏分数预测
+
+包含全部失败／空patch／超时的原生总成本8680.91对8728.07秒、完整wall9163.92对9210.80秒，只减少0.54%／0.51%，不能抵消修复减少。五份支持候选均为单文件原生edit，没有一份满足真实标准差分成功应用并保留至少两个实现文件的冻结机制条件；临时patch文件与诊断helper不算实现迁移
+
+development_selected=false、independent_acceptance=false、promotion_allowed=false，正式请求0。selection SHA256=9ef8d985e2a1bf7460457662549e040ea438b0f6fedc745c0f5dfff0750c4091，位于output/research/diff-format/development/selection.json。analyze.py seal／finalize已执行，不重跑notes／collector／report以免改变封签引用，不换题／seed／阈值或补跑救回。原0.17仍为回退锚点；此结果否定本次提示式差分路由，不声称所有差分编辑方法无效
+
+##### 冻结配置与执行证据
+
+新候选现已在output/research/diff-format/candidate建立，只向精确0.17的system prompt插入MULTI-FILE EDITS段，保留三个YAML、六原生工具、31B CT无adapter、8192输出／4096思考、temperature0／top_p0.95、五分钟／24动作／40轮／命令60秒。单文件仍走edit_file，仅多文件一致变更要求写一份标准Git差分再check／apply，删除临时patch后收尾；不新增解析器、Skill或宿主回调，不混入原子编辑或事后检查融合段
+
+CPU接线沿用下述精确骨架与自造快照，不证明Gemma会选择或正确使用路由。55单元／16元数据、12项选择规则和60项无模型计划已通过；候选四文件ZIP逐字节核对，包SHA256=433bab2d70ec6dca43d8acc2b43b67ae44e4a0ffb958781f1d5085ad5cd08b02，freeze SHA256=769d3a72a6e5afe188614c4edc1d2a8e183dac062d9cadfad4355b25015df403
+
+冻结旧30熟题×候选／新鲜精确0.17对照共60项，seed20261022，GPU0／1／2、端口8330—8332，每卡两个条件先后各5题；不是60道独立题，不用余12题、不换seed或补跑。启动必须再次确认卡空闲及无同研究owner；仅启动一次，真实状态以development-owner.json对应PID和创建时间为准
+
+接纳规则在模型前固定：全部60项、输入不变、原执行／元数据／覆盖、干净副本及自身双JUnit门禁有效，双方全部严格阳性统一源码审核；候选支持下界不低于对照含uncertain上界，且净增至少2份并且含全部失败的原生／完整wall成本比均≤1.10，或质量不降且两类成本均减少至少20%。另外至少两份源码支持候选有真实write_file标准差分、原生run_command成功应用、涉及至少两个实现文件并保留到最终实际patch；只加载、写临时文件、失败应用、打印或后来还原不算机制证据
+
+这是熟题开发筛选，p仅描述、不推算公榜；不放宽规则救回，不将旧路线改名计正向点。模型前candidate prompt已固定，运行中不改SDK、维护核心、测试或输入；本驱动永不正式提交，结束后先完整审核再按最新授权决定后续
+
+仅于2026-10-25T05:43:01 UTC实际启动一次，owner1100672／create_time1792906981.02，CLI1100673／1792906981.07均核实存活；API8330／8331／8332对应1100876／1100875／1100940，各自启动完成、health200与真实推理POST200均已核实。后台运行不等于修复，所有质量结论仍等待完整60项及源码／双方JUnit审核
+
+运行中只新增后置diff_events.py，不改SDK／候选或规则。它以真实原生CPU三次应用（失败、多文件成功、单文件修正成功）及11个拒绝反例通过12项索引资格，源码与fixture SHA在event-index-qualification.json绑定。检查write_file成功回执、原author／observation、文件身份、标准Git命令与实际exit；不把bool当0、不把check-only当应用，歧义或非规范命令保留人审。任何中间未知命令使旧write绑定失效，避免把已被shell改写的patch归给旧内容；该保守索引会漏掉其他合法写法，不自动拒绝整题。最终实际实现、后续改动、清理、当前patch及各自JUnit仍须逐份人工审核
+
+阶段审核工作单collect.py复用原analyze_case、当前patch／双JUnit绑定及合格clean_copy_evidence，逐份核实三sandbox、pip／依赖库存与独立副本回执；不重跑验证、不改原resolved。终态60/60、十二份严格阳性已全部审核，source-annotations complete=true，完整比较见上方结论
+
+control Requests7433的本轮最终739字节补丁有限满足题面直接给出的stream判断条件，自己的两份JUnit均337过2跳，原始函数下游处理保持；错误复现、吞异常打印和重复提交等纪律缺陷另记，不凭相同历史patch借用旧测试证据。control HTTPX3672自己的双JUnit各24过，但当前patch只改parser与server，原始snapshot的_pool.py240仍真实调用已删除的complete方法，统一known_contract_gap、不计源码支持
+
+FastAPI9425两臂分别核对各自双JUnit1过与实际patch：候选在共享annotation helper为精确字符串None早返回，对照在return helper归一化求值后的NoneType，均有限支持公开204需求。不虚构未观察参数回归；候选复制自检helper且吞异常，不是实际库行为证明，对照真实导入／TestClient裸断言确实通过但保留多余verify_fix.py。后者不是第二份实现文件，不能拿文件数或对照检查给候选充多文件机制证据。候选本题只用原生单文件edit，diff_edit明确not_supported
+
+control FastAPI5624自己的双JUnit各1过，实际get_dependant每子依赖复制非空父scope列表，避免extend污染兄弟及父列表，原始源码229—307与[原始问题](https://github.com/fastapi/fastapi/issues/5623)的继承／兄弟隔离契约一致。当前repro实际打印了修改前后差异，但未作断言，首次OAuth2构造错误、清理及重复提交均保留；只读原问题正文，未读解决PR／gold或向运行中Agent反馈
+
+control FastAPI5077的本轮1173字节补丁在signature与return annotation两个helper中沿__wrapped__取得原函数globals，保留原inspect.signature、参数构建与空返回处理；自己的两个JUnit各1过，源码与本轮三份副本回执分别核对，有限支持公开跨模块forward-reference需求。初始同模块复现没有区分namespace，后续真实跨模块helper在修改前打印ForwardRef、之后打印module_a.B，但都只打印／捕获异常而不作断言；Success字样不当验证。最后清理四个辅助文件、二次submit仅保留库修改；这是新的当前补丁审核，不借用旧同名任务的不同patch／JUnit，也不是候选多文件路由收益
+
+candidate FastAPI5077也按其当前1143字节patch与自己的双JUnit各1过审核，两个原生edit同样修正两个helper的原函数globals、最终仅一个库文件。后期命令23实际导入wrapper及库return helper并裸断言ReturnModel相等，但参数只打印，未执行的test_signature内还留有错误断言；不把它混同为整个自检失败或全部断言有效。候选Requests6644自己的双JUnit各1过，实际models.py在path_url及HTTP prepare_url增加双斜线guard，非HTTP准备早返回、netloc和query逻辑保持，有限支持公开归一化需求；其余三个保留文件只是打印式／复制分支诊断脚本，清理因24动作被拒绝。两题均无标准Git差分应用，最终也各只有一个真实实现文件；库修复保留，但不得将helper数量或真实单文件自检给新机制记功
+
+control Requests6644的405字节库补丁只改实际path_url，自己的双JUnit各1过；HTTP request-target去掉多余前导斜线、query拼接保留。它会对rootless非HTTP路径添加斜线，故仅记有限HTTP契约支持，不宣称任意scheme／自定义adapter不变，也不为救候选改变对照分类。其修正后的helper直接继承实际RequestEncodingMixin，command26有八项真实属性裸断言、exit0，不与早期复制函数的检查混同
+
+candidate Rich3067只在实际URL字符类加tilde，自己的双JUnit各82过，其他scheme和正则保持。真实ReprHighlighter全span检查在修改前打印失败、之后打印成功，但两次均exit0，因此只是观测不是可靠断言。Rich4077两臂分别为实际FileProxy添加isatty委托，各自双JUnit各4过；对照Agent另真实跑过原有三项测试，候选真实mock前后打印False／True但没有裸断言。继承TextIOBase导致__getattr__无法代理已有方法的源码原因明确。均保留多余脚本／重复探索等纪律事实，都是单文件原生edit，不计多文件差分机制
+
+只读failure-focus.json另外绑定一份候选HTTPX3672失败：303.97秒会话超时、19次动作均为read_file或grep、无编辑／临时diff／Git应用／submit，最终空patch；原生测试exit-1、独立失败照留。实际grep10与read13已看到_pool旧complete调用，随后仍继续读parser／server／异步变体，不能把“看到调用者”当完整修复计划。这里没有发生差分格式拒绝，故不能据本题把空patch归为格式应用失败，也不证明新提示造成超时。这仅一份失败的语义诊断，全部失败审核仍未完成，原data与运行输入不变
+
+另一候选FastAPI14605的unapplied-diff-review.json绑定本轮真实失败：原生TaskResult duration318.95秒、error为五分钟会话超时、测试exit1。实际先只在exceptions.py添加警告类，随后trace27约293.60秒把4246字节／六文件diff写入repair.patch，耗尽24动作；get_status显示余1.32秒、尚未submit，此后没有任何Git应用。最终4982字节patch只是警告类声明加临时diff文件，不是六处实现已经迁移
+
+后置CPU仅取原snapshot七份相关源码到自有临时目录，应用本轮实际最终patch后核对repair.patch字节与原生写入完全一致；再对这同一原样文本执行Git --check --recount与默认实际应用，两者均exit1，六个文件均报告上下文不匹配，失败后七份源码SHA不变。总共3条Git组件命令，无新模型、pytest或官方验证运行，不改原产物、data、SDK或运行候选。这是后置可应用性失败，不能追述成Agent曾收到Git拒绝；同样不能据此断言合并写入／应用一次调用即可完成修复，因为生成上下文本身也不适用。仍只是一份已完成失败的诊断，不作整组采用结论或向在跑模型反馈
+
+后置analyze.py已通过8项终态就绪／原冻结12项公式、1条真实原生CPU多文件绑定／16个拒绝反例及6项自身patch／双JUnit资格；analysis-qualification.json绑定源码与自造trace。新增startup-observation.json绑定三服务PID／创建时间、日志前缀与当时真实health／推理200，不保证持续健康。未完成60项、未审完全部阳性或自有进程仍存活时不能seal／finalize；最终保留、真实实现文件分类、命令内部失败是否被掩盖均仍需人审，不能只看外层exit0或多文件header。对未资格的合法命令形式先补明确证据／读取资格，不把索引漏检自动当整题失败；这些是后置证据接线，不改变模型前接受条件或SDK
+
+##### 统一差分的CPU资格与来源边界
+
+完整融合批次已90项结案且不采用后，复用既有自造double题的快照／题文件，以精确0.17配置注册脚本化CPU响应，只通过原生六工具执行多文件差分；不创建Gemma候选、不改SDK／基座或公开题。qualify_native.py通过pyflakes，output/research/diff-format/native-qualification/receipt.json完整保存三分支，每分支三份sandbox身份互异，原baseline／快照及维护核心hash前后未变
+
+- 正常分支先用不匹配上下文遭git拒绝，并断言原实现未变、helper未创建；改正差分后一次修改calculator并新增arithmetic。真实负数行为断言先退出1，下一份差分修复后同一检查退出0，清除临时patch再submit；原生与另一干净副本pytest各3过，最终两文件补丁包含新增helper，不残留repair.patch
+- 语法错误分支的Git应用成功，但真实导入与双方pytest均退出2／一个收集错误，不将“应用成功”算实现有效
+- 共享cap=3分支写差分与应用均消耗原预算，后续被BudgetExceeded拒绝；实现未变，原生／独立各3失败，未获得免费写入或额外预算
+
+get_status在六个计费动作后准确返回6；正常分支14份脚本化请求、语法分支11份、cap分支14份，不是Gemma调用次数或新模型成绩。新增真实模型调用／GPU作业／公开任务运行／正式提交均0。标准Git差分的原生交接、清理和干净副本验证至此有CPU证据；模型格式遵循、任务修复质量、官方Docker等价与公榜收益仍未证明
+
+模型前提出的假设是多文件一致修改时的一次标准Git差分，保留六原生工具及五分钟等预算，避免只把旧单文件精确脚本路线换名。它可能减少跨文件漏改，也可能因额外写入／应用动作、转义和格式错误更差；须比较完整成本及全部严格阳性源码，不因CPU绿检查直接认定收益／提交、添加容错应用器或重跑已否定组合
+
+2026-10-25等待既有融合批次期间，只核查一种不同的编辑表示，不改当前候选或启动第二批模型。[Aider文章](https://aider.chat/docs/unified-diffs.html)与[格式文档](https://aider.chat/docs/more/edit-formats.html)说明其udiff是简化格式，由自有应用器解释缺少数字行号的hunk并做容错；作者结论主要针对旧GPT-4系列及其重构任务，不能当作Gemma4或本比赛成绩。不同模型适合的格式也可能不同，不能将其宣传数字直接作为收益预期
+
+[Git官方说明](https://git-scm.com/docs/git-apply)中的--recount只重新计算hunk行数，不是Aider应用器；--check只检查能否应用，默认不使用--reject时整体应用失败不会保留可应用的部分。新方向至多是“多文件差分表示和应用流程”的同一家族假设，不因换格式名称重复计正向点，也不是已复现Aider
+
+自造CPU探针位于output/research/diff-format，当前Git2.34.1。第一次检查在双文件应用处失败，原脚本／receipt按minimal-headers语义名保留；随后只补文件级diff --git头，并增加有／无--recount的控制，完整九项边界检查通过，receipt.json绑定源码、输入差分SHA与实际退出／stderr，不覆盖初次失败
+
+- 标准上下文差分可先只读检查再实际应用，错误hunk计数在此例可被--recount修正；Aider式@@ ... @@仍被拒绝
+- 本机双文件差分缺文件级头时，无--recount检查通过、有--recount拒绝；完整Git头版本成功，不外推所有Git版本，也不把最初失败归为模型失败
+- 完整双文件差分可一次应用；第二处上下文不匹配时，默认整体拒绝且两个文件均不变；这是特定自造夹具，不是所有并发／文件系统的事务保证
+- Git可成功应用语法无效Python，故应用成功不等于编译／行为通过；默认拒绝该越界路径，新实现文件的标准补丁可创建
+
+新增模型调用、GPU作业、官方验证运行与候选包均0；没有改SDK、正式data、计分器或运行中配置。此处没有证明原生run_command／write_file的实际文本解析、共享预算接线或Gemma会写对格式，不能称完整Harness资格或模型提分
+
+若完整融合结果之后仍值得检验，先确定标准Git差分与Aider改造格式二选一的执行契约，再做真实原生CPU交接与预算资格；必须计入写差分／应用／清理成本、JSON或shell转义、错误格式、最终补丁残留及全部失败。当前仅保留候选方向，不创建GPU owner、冻结新题或改变本批规则，不声称接口简化必然弥补需求理解缺口
+
+##### 精确脚本编辑的完整结果
+
+单用途脚本编辑现已60/60完整结束、三分片退出0，全部16份严格阳性统一源码／当前JUnit审核完成，冻结输入及预定元数据／覆盖门禁有效。指定测试8/30对8/30，源码支持7/30对精确0.17的7/30、1胜1负、单侧配对p=0.75，按冻结公式不采用。原生任务总成本8474.66对8525.16秒、含标准独立复核的case-wall总成本8960.00对9003.82秒，仅降低0.59%／0.49%，均未达到20%门槛
+
+七份支持候选全部核实实际脚本编辑保留，作用链成立却没有更多修复；参数错误6对72、相同调用重复42对110下降不是质量收益。候选空补丁8份对5份、agent_error16份对15份照留。owner终态completed_development_not_selected，原owner与三个API均已退出，本轮不补跑、不换seed或用余12题救回。完整回执output/research/scripted-edit/development/selection.json，SHA256=a7fba068f2370e25cb41cee275a46c70522de2dadff76bd1bbe4b017e311d560
+
+候选Rich3676的两次JUnit虽均22项／21过1跳，且test_notes通过，但实现仅捕获notes并新增未使用style，未改实际渲染路径，按源码缺口排除。对照HTTPX3672同样因遗留调用者与服务器行为排除，不双重标准地把窄测试全绿当完整修复。原始matching_junit_identities=false及模型前fastapi_14605收集例外保留，预定junit_identity_check_passed=true不改写为原始身份完全相同。人工源码审核成本另计，不计入候选Agent预算，也不宣称跨仓库或隐藏分数泛化
+
+正式锚点仍是精确公榜0.17，旧融合0.13不采用；公开原样包ref57542842已另行仅提交一次，等待官方评分，不为本候选追加提交
+
+##### 失败终点与下一步
+
+完整60项的只读分型已完成，failure_analysis.py通过pyflakes，结果为output/research/scripted-edit/failure-analysis.json，绑定原报告、源码审核与选择回执hash，不改原结果或调用模型。候选30项分为支持7、空补丁8、非空但验证失败14、窄测试通过但已知源码缺口1；对照为7／5／17／1。候选16次会话超时，对照14次超时与1次轮数耗尽；这些错误可与非空失败补丁重叠，不机械归因为模型能力
+
+双方均有6份非空补丁、验证失败但无Agent异常的记录，说明并非所有剩余失败都能由延长预算或修正工具参数解释。下一步优先审查这部分当前轨迹与对照，区分错误修复假设、遗漏需求或调用者、引入回归、验证失败后的行为，再选择新机制；这是研究入口，不是已确定六份失败的语义根因。不继续改名重跑精确编辑路线，不据终点分型声称新的提分点
+
+##### 假设与已有反证
+
+刚结束的高容量分工组中，精确0.17对照有9题出现原生编辑报错，若干题连续遗漏old_string或new_string；原始30份trace及分型在output/research/focused-return/anchor-bottlenecks.json。它只是当前样本的工具观察，不证明参数循环是全部失败的原因，成功编辑也可能只是临时脚本
+
+旧小工具箱在少数简单题有局部收益，但不是当前0.17包的泛化结果；纯命令接口曾为0/4对3/4，四工具命令编辑也未胜过六工具参考，不能从工具少推断质量更高。新候选不复制整个工具箱，也不再增加规划／编辑角色，只检验一个简短脚本编辑入口在当前高容量原骨架中的联合效果
+
+方法动机仍是[SWE-agent动作接口](https://arxiv.org/html/2405.15793v3)的精确编辑与即时可执行反馈，不复现其模型、训练或论文分数，也不是新增发现的论文机制
+
+##### 只改变什么
+
+保留同一个native_engineer入口、31B、temperature0、8192输出／4096思考、5分钟／24原生动作／40轮、单命令60秒、原规划／需求核对／收尾段
+
+移除native edit_file与write_file，加入一个exact-edit Skill及对应EDIT说明。仍保留read_file、run_command、get_status和submit_patch；SDK另外自动注册list_skills、load_skill、load_skill_resource、run_skill_script四个工具，因此实际菜单是8个，不宣传为工具数量更少
+
+编辑调用形式为run_skill_script(skill_name="exact-edit", file_path="scripts/edit.py", args=["FILEPATH", "OLD", "NEW"])。三个真实源码字符串按位置传递，不再要求模型逐次生成原生old_string／new_string键，也不需要shell引号或第二层JSON编码。没有额外操作名、搜索／测试／图检索工具或模型调用
+
+脚本只做单次精确替换：旧内容须唯一，空OLD仅能创建尚不存在的实现文件，Python先compile再写，成功只返回简短回执。没有按任务ID的分支、参考修复、自动补名称或语义纠错，也不人为限制每次几行来缩窄任务。非Python实现／运行元数据可编辑，不沿用旧工具箱只许Python的限制
+
+仅阻挡明确测试命名、部分验证文件及.git等已知路径，不能识别所有测试别名或配置里的验证设置；run_command仍有写入能力，提示不是操作系统权限隔离。必须审核实际补丁和命令，不把这些有限路径检查写成完整安全保证。语法通过也不等于需求修复
+
+##### CPU资格与失败保留
+
+12组脚本检查覆盖唯一替换、缺失／重复锚点、语法拒绝保留原文、新文件、测试／元数据／越界拒绝、非Python元数据、以--开头的真实源串、参数数量错误及Skill临时执行目录的PWD定位
+
+真实SWE Evaluator／Subprocess自造double函数链已验证：原断言失败，实际run_skill_script拒绝坏Python且工作副本仍保持原行为，合法脚本编辑后完全相同断言通过，非空补丁在另一干净副本上pytest一项通过。10次脚本化模型侧请求均核对实际8工具及8192／4096配置，get_status预算计数1→5，编辑没有得到免费或另开的一份预算
+
+外层Skill返回status=success只表示脚本执行完成，内部stdout仍可能是status=rejected。prepare另外读取两份实际返回正文，分别要求SyntaxError／original_preserved与status=ok／changed=true，不能只看外层成功。回执为qualification/receipt.json和script-observations.json
+
+首次CPU检查漏算SDK自带的list_skills，模型请求在首步被检查器断言终止，未执行编辑；失败产物和当时qualify.py保存在qualification-menu-assumption。按实际SDK修正菜单断言后重新运行自造CPU检查，未改候选、SDK或任何公开任务，不将此计作一次真实模型重跑
+
+##### 模型前固定计划与接纳标准
+
+pyflakes、55项单元、16项元数据、12组脚本检查及10项选择规则边界检查已通过，plan-only固定旧30题／60项、seed20261022、同一环境与精确0.17对照。三张空闲A6000各10题，每卡候选／对照先后各5题；原始题、source环境资格和剩余12题不动，不抽种子、不补跑失败
+
+必须完整60项、冻结输入／配置／模型／种子与预定原生／独立／JUnit覆盖门禁有效，所有严格阳性按相同标准绑定当前补丁及JUnit并审核源码。候选支持下界不低于对照可能支持上界，且净增至少2份支持修复，或质量不降并且含失败的两类完整成本均降低至少20%；未知候选不计支持，未知对照算可能支持，p值仅作描述
+
+此外至少两份源码支持候选须实际通过脚本成功修改，且该修改保留在最终实现补丁。需唯一绑定call／author、解析真实stdout中的ok和changed=true，人工检查OLD／NEW及后续修改，不能将外层success、脚本拒绝、Skill加载、注册或shell修改算成脚本的收益。若基础质量／效率存在晋级可能，所有支持候选的作用均须审核完成；基础条件已失败时未审作用不等于零调用
+
+这是一份编辑路由、工具菜单、语法保护与准确说明的联合干预，不把结果单独归因于位置数组或某一句话。熟题筛选不构成独立验收、跨仓库泛化或0.24分数校准，也不激活旧编辑协议的条件提交授权
+
+##### 产物与执行边界
+
+output/research/scripted-edit保存候选、六文件ZIP、CPU资格、preparation、study-freeze和后续真实结果；实际启动只看development-owner.json和进程，不把冻结计划当作GPU已运行
+
+启动后已逐一核实API进程739143／739144／739145及各自创建时间，端口8130—8132的对应日志均出现Application startup complete、实验内部health200和真实推理POST200，原运行器仍存活。只核对本批进程，不重启或影响其他作业，尚无完整质量结论
+
+启动后新增只读script_events.py，并用实际CPU坏编辑／合法编辑轨迹及10个反例通过12项返回绑定检查，回执为script-index-qualification.json。索引区分外层success与内部rejected、changed=false、错误Skill／脚本、错误author、同名多调用歧义和坏返回；这里只提供人工审核入口，不自动证明最终保留或语义修复，不追认为模型前新增策略门槛，也不改变冻结接纳条件
+
+只读finalize.py也已通过原10项冻结公式与8项后置证据绑定检查，资格为finalizer-qualification.json。只有60项终态、原始结果和计划身份一致、全部严格阳性源码／当前JUnit审核完成后才能结案；基础质量／效率可能通过而支持候选的脚本保留审核未完成时拒绝晋级，不用机械命中自动替代人工源码判断
+
+首批两份候选已有实际脚本修改保留在最终补丁：Requests7433在第一次合法修改后又还原，故只绑定最后一次重做的step19；FastAPI14361绑定step17的缺键保护。两题也被当前原骨架修复，不是候选新增质量收益，两侧均分别核查本轮原生及干净副本JUnit。Requests与FastAPI的工具参数都曾错误地将native_engineer作为Skill名称，另有外层字段损坏；尚无解析前生成文本，不能从当前trace唯一分配模型生成端与parser的责任。这些失败、还原和额外耗时照留，不在运行中把Skill改名或放宽规则，也不宣称已消除参数错误。细节在source-annotations.json，当前complete=false，尚无全量结论
+
+研究方式现按用户最新要求恢复goal，gemma-harness已删除，不创建监控或用computer use。正式提交的包与时间均由用户指定；不训练、不改SDK／官方data／测试／计分器或其他session权重／作业。接纳标准失败保留负结果，不凭参数报错减少或目录存在宣称成功
+
+##### 原有失败的后置复核
+
+辅助六项CPU复核已完整结束：requests_6589与rich_3296分别运行原代码、精确0.17补丁、脚本候选补丁，全部在相同冻结profile和不同干净副本上执行，pip均退出0，三侧测试节点身份相同且无skip变化。Requests原代码320过／2失败／2跳，两侧补丁均321过／1失败／2跳，修复字符串Content-Length目标，遗留相同的无效端口重定向失败；Rich原代码15过／9失败，两侧补丁均16过／8失败，修复padding背景色目标，遗留相同的八项语法高亮快照失败，均未观察到原先通过项转为失败
+
+这证明两份窄目标在当前有限测试中确有修复，而“全套全绿”端点会漏掉这种局部改善；不证明遗留失败一定全部由环境造成，也不等于整题语义／官方评分通过。两侧同时改善，不能改写为脚本方案新增两题或改变原来的不采用决定。原报告、选择、JUnit及7对7主结果全部保留，辅助研究成本另列，不跳过失败或改计分器。回执auxiliary/inherited-failure-review/review.json，SHA256=1bebb236879c03734a4d9ecec780f5a29a6e876b0fbc20f5e1023cca907f7888；无新模型调用或GPU作业
+
+六份“无Agent异常”的候选也不等于预算充足：FastAPI14266／14512均在24次动作耗尽时只留下复现文件；FastAPI14487的shell表达式先以写模式打开文件、再读取同一文件，导致六份实现被截为空，py_compile也不能证明保留了实现。Rich3675将任意存在的TTY_COMPATIBLE值当作真，未保留空值／否定值等边界；另两项的原有失败如上。前述六份分类只是观察终点，语义根因须逐项核实，不能直接推断六份都是纯推理失败

@@ -1,45 +1,46 @@
-##### 项目目标
+##### 当前状态
 
-保留一个精简的声明式 baseline 和清晰的提交、评测流程，本文件作为导航；README 暂不创建，后续用于对外介绍
+Harness研究已收束，当前开发基线是已评分0.17的单31B／六原生工具配置
+先读 README.md、agent/research/harness_closeout.md、training_handoff.md 与 execution_alignment.md
+训练是下一阶段方向，目前没有训练就绪数据、已验证adapter或训练启动授权
 
-##### 目录职责
+本轮用户授权整理README、清理冗余、提交并推送仓库；不启动模型、训练、Kaggle提交或监控，不恢复历史Goal与定时任务
+旧文档中的“当前／运行／授权”是当时快照，不据其恢复任务
+旧根导航与目标全文、未采用Skill原型留在 output/archive/review-ready-baseline，原始结果仍在 output/research
 
-- agent：全部参考文档，按 competition、harness、workflow 分类
-- data：数据与运行依赖，data/competition 保留官方任务、仓库快照、sample_submission 和 SDK，输入只读
-- output：全部生成结果，kaggle 为部署文件，deployment 为回收提交包，baseline 为真实评测产物，local-check 为模拟产物
-- submission：唯一可编辑的最终提交配置，直接打包到 ZIP 根目录；configs 与 prompts 保留配置引用所需结构
-- src：核心脚本，直接放在此目录，不另设单一 agent 子目录
+##### 工作区
 
-##### 文档导航
+主机 ssh baojian
+仓库 /mnt/data/haoyang/workspace/gemma4-developer-agent
+解释器 /mnt/data/haoyang/miniconda3/envs/agent/bin/python
 
-- [比赛与规则](agent/competition/competition.md)
-- [来源索引](agent/competition/references.md)
-- [Harness 配置与工具](agent/harness/harness.md)
-- [评测与结果判读](agent/harness/evaluation.md)
-- [官方 Harness 原文](agent/harness/official_guide.md)
-- [Baseline 配置与当前结果](agent/workflow/baseline.md)
-- [本地模拟检查](agent/workflow/local_check.md)
+submission/仅保留精确0.17四文件开发基线，实验候选另建到output/research/<机制>/，不要混入默认打包目录
+src/维护共享运行逻辑，tests/fixtures/只保留纯元数据，agent/记录结论与规范，data/与output/均不入库
+研究脚本及历史原型不混入维护代码；新README已获用户明确授权
 
-##### 操作入口
+##### 证据与执行纪律
 
-在仓库根目录执行，所需环境见本地检查文档
+- 只报告已验证、部分、待办与受阻的确切状态，区分工程资格、本地质量与实际官方成绩
+- 官方任务、测试和计分器只读，不读gold设计策略，不向Agent注入参考修复
+- 保留所有失败、空patch、超时、skip、JUnit身份例外和全部成本；不回写旧结案或重放封存producer
+- 旧开发题已反复暴露，同题多seed不是新独立任务；预留题不自动解封
+- 未来新实验按当轮授权设置有限目标，预先固定候选、精确对照、题／seed、依赖、预算与准入规则；运行中不改输入或放宽门槛，不因SSH中断重复启动
+- 单批模型实验，仅用空闲资源，不停止或抢占其他session作业；不擅自改权重、训练数据、权限或购买资源
+- 实际补丁须绑定自身源码、原生与独立干净副本测试及行为需求；退出0、窄测试绿、非空patch均不等于完整修复
+- 正式提交须有当轮明确授权及完整依据，核对官方预算、账户、额度、待评分、包身份与防重回执；请求不明先查记录，不自动重发
+- 所有操作使用CLI，不用computer use或VPN界面；凭据不进聊天、日志或Git
+- 不覆盖无关脏改动，不擅自推送或改历史；阶段提交按用户当轮授权执行
 
-- 校验并打包：`.venv-harness/bin/python src/build_submission.py`
-- 生成部署 Notebook：`.venv/bin/python src/build_notebook.py`
-- 回收并核对部署包：`.venv/bin/python src/collect_run.py`
-- 本地模拟检查：`.venv-harness/bin/python src/run_local_mock.py`
-- Linux GPU 单任务评测：`src/run_baseline.py`，通过 `--data`、`--model`、`--output` 指定输入与输出
+##### 代码检查与保护对象
 
-##### 工作约定
+代码修改后运行 python -m pyflakes src/*.py 与受影响CPU测试
+完整回归 python -m unittest discover -s src -p 'test_*.py'
+打包必须显式 --output 指向新路径，不重建受保护包
 
-- 官方 sample 保持只读，当前精简配置维护在 submission
-- 使用固定语义路径，不建立编号实现副本或逐次运行历史
-- 不修改 data/competition，不将解答字段传给 Agent
-- 当前只做低预算 baseline 和基础流程，不训练；已有正式提交完成评分，监控已停止，不自动追加提交
-- 本地模拟仅检查 harness 逻辑，真实模型与测试结论以 Kaggle 产物为准
-- 改动后执行 `.venv-harness/bin/python -m pyflakes src/*.py`
-- 本地安装包使用清华或阿里镜像
-- 打包 Notebook 只生成提交包，无需模型挂载；CPU 与 T4 GPU 均已取得成绩，当前生成器保留已验证的 T4 配置，目录整理不改变运行策略
-- 浏览器不得修改 Notebook 标题，持久入口为 haoimba/gemma4-developer-agent
-- 不因排队或暂未完成重复部署
-- 不在仓库或输出中保存凭据
+以下文件永久保留原字节
+- output/research/capacity-trial/submission.zip
+- output/submission.zip
+- 已封存实验的规则、输入、结果、人工标注与原始回执
+
+旧冻结研究绑定旧执行器身份，后续维护改动不回写它们
+SSH或权限阻塞仅做少量安全核查后请用户协助，观察失败不等于进程停止

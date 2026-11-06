@@ -1,9 +1,0 @@
-diff --git a/README.md b/README.md
-index eb0368762..789016027 100644
---- a/README.md
-+++ b/README.md
-@@ -540,3 +540,4 @@ Additional optional FastAPI dependencies:
- ## License
- 
- This project is licensed under the terms of the MIT license.
-+<!-- harness plumbing marker -->

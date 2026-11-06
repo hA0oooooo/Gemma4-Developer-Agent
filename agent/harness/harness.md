@@ -2,7 +2,7 @@
 
 官方约束的是 submission.zip 的内容，不规定整个本地研究仓库的布局
 
-submission 目录维护当前精简 baseline，只对其内容打包，不能额外包一层 submission 文件夹
+submission 目录维护当前正式候选，只对其内容打包，不能额外包一层 submission 文件夹
 
 ```text
 submission/
@@ -19,7 +19,7 @@ submission/
 
 Overview 明确要求 agent.yaml；官方 guide 还接受 agent.yml / root_agent.yaml / root_agent.yml 且只许一个 root config，本项目固定使用 agent.yaml
 
-当前只使用 agent.yaml、eval_config.yaml、configs/sampling.yaml 和 prompts/system.md
+实际包内容以显式指定的source和对应ZIP为准：已获0.17的精确方案只有agent.yaml、eval_config.yaml、configs/sampling.yaml、prompts/system.md四份文件。旧冻结目录中的workspace-kit不是当前最佳已评分包；只有明确选择Skill候选时才加入其SKILL.md和scripts，不无意混入。均不打包基座权重、本地实验记录或Notebook；若以后明确采用LoRA，再按规则加入所需adapter
 
 ##### Model 与 Harness 的边界
 
@@ -45,7 +45,7 @@ skill 目录必须有 SKILL.md，frontmatter 包含 name；run_skill_script 在�
 
 ##### 模型与运行限制
 
-所有主 Agent 和 sub-agent 使用 gemma-4-31b-it-qat-w4a16-ct；可选不同 LoRA adapter，完整 base weights 不是当前必需提交内容
+所有主 Agent 和 sub-agent 必须使用同一个官方量化模型，可选 31B、12B、E4B、E2B；完整名称与 Linux 运行方式见 [官方入门适配](../workflow/official_starter.md)，可选不同 LoRA adapter，完整 base weights 不放入提交包
 
 官方 guide 描述评测使用 4×NVIDIA L4、tensor_parallel_size=4、max_model_len=32768；combined prompt / reasoning / output 共用上下文
 
@@ -73,14 +73,14 @@ search_similar_code 的离线 query 按符号键或后缀解析，guide 建议�
 
 ##### Context 与待核验项
 
-guide 描述自动 compaction_interval=5、overlap_size=2、token_threshold=14336、event_retention_size=5；实际版本后续以安装的官方包为准
+当前官方 guide 描述评分端 compaction_interval=15、overlap_size=2、token_threshold=14336、event_retention_size=5；缓存 min_tokens=2048、ttl_seconds=1800、cache_intervals=10，本地真实 runner 使用相同参数
 
 官方 SDK 来源为 metric/gemma-4-developer-agent-wheelhouse，Kaggle Staff 确认其为固定评分包，不支持 ADK 2.x
 
-核心包版本：swegemma 0.2.7、adk-submission 0.2.12、adk-eval-core 0.1.0、google-adk 1.36.1、google-genai 2.11.0；swegemma 要求 Python >=3.12
+已安装的官方包：swegemma 0.2.11、adk-submission 0.2.13、adk-eval-core 0.1.0、google-adk 1.36.1、google-genai 2.11.0；使用 Python 3.12
 
 模型 runtime：vllm 0.19.1、transformers 5.13.1；Linux GPU runtime 不安装到 Mac 根环境
 
-TODO：实际编译 sample 与完成模型服务、Agent、验证链路；安装证据见 agent/workflow/baseline.md
+真实模型服务、Agent 与验证状态见 [baseline](../workflow/baseline.md)，不把语法检查或 GPU 可见当作完整运行
 
-来源：[官方指南](official_guide.md) §1–3、§5–7；比赛 Overview URL 见 [来源索引](../competition/references.md)，访问日期 2026-10-01
+来源：[官方指南](official_guide.md) §1–3、§5–7；比赛 Overview URL 见 [来源索引](../competition/references.md)，指南更新日期 2026-10-13

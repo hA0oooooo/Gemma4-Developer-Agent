@@ -31,7 +31,7 @@ class DevelopmentSuiteTests(unittest.TestCase):
         self.assertEqual(sorted(self.panel["quota_by_repository"].values()), [1, 4, 10, 15])
 
     def test_frozen_draw_reproduced_from_metadata_only(self):
-        original = list(map(json.loads, (ROOT / "data/competition/tasks.jsonl").read_text().splitlines()))
+        original = json.loads((ROOT / "tests/fixtures/public_task_metadata.json").read_text())
         excluded = set(self.panel["new_selection_excluded_ids"])
         chosen = set(self.panel["previously_used_core_ids"])
         confirmation = json.loads((ROOT / "agent/research/confirmation_set.json").read_text())
@@ -48,12 +48,12 @@ class DevelopmentSuiteTests(unittest.TestCase):
     def test_confirmation_is_disjoint_and_preserves_original_six(self):
         confirmation = load_panel(ROOT / "agent/research/confirmation_set.json")
         self.assertEqual(len(confirmation["tasks"]), 24)
-        legacy = json.loads((ROOT / "output/research/holdout-manifest.json").read_text())
+        legacy = json.loads((ROOT / "tests/fixtures/holdout_manifest.json").read_text())
         self.assertTrue({task["instance_id"] for task in legacy["tasks"]} <= {task["instance_id"] for task in confirmation["tasks"]})
         self.assertFalse({task["base_commit"] for task in self.panel["tasks"]} & {task["base_commit"] for task in confirmation["tasks"]})
 
     def test_reserved_original_unchanged(self):
-        path = ROOT / "output/research/holdout-manifest.json"
+        path = ROOT / "tests/fixtures/holdout_manifest.json"
         self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), self.panel["reserved_holdout_manifest_sha256"])
 
     def test_invalid_manifest_rejected(self):
@@ -190,7 +190,7 @@ class DevelopmentSuiteTests(unittest.TestCase):
         self.assertEqual(passed["task_seconds_per_verified_repair"], self.size * 12 / 3)
 
     def test_original_ten_case_cohort_remains_readable(self):
-        panel = load_panel(ROOT / "output/research/development-baseline/cohort.json")
+        panel = load_panel(ROOT / "tests/fixtures/legacy_cohort.json")
         self.assertEqual(len(panel["tasks"]), 10)
 
     def test_different_condition_seeds_do_not_form_a_paired_gain(self):

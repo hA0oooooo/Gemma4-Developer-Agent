@@ -10,6 +10,10 @@ __pycache__/
 output/
 *.log
 models/
+data/models/
+data/wheelhouse/
+data/local-wheels/
+data/nvidia/
 .cache/
 data/cache/
 data/competition/snapshots/
@@ -23,3 +27,8 @@ data/competition/wheels/
 *.zip
 *.tgz
 tmp/
+
+# Runtime inputs and generated artifacts stay on Linux
+data/
+outputs/
+*.whl
