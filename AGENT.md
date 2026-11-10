@@ -6,7 +6,7 @@ Harness研究已收束，当前开发基线是已评分0.17的单31B／六原生
 
 本轮用户授权整理README、清理冗余、提交并推送仓库；不启动模型、训练、Kaggle提交或监控，不恢复历史Goal与定时任务
 旧文档中的“当前／运行／授权”是当时快照，不据其恢复任务
-旧根导航与目标全文、未采用Skill原型留在 output/archive/review-ready-baseline，原始结果仍在 output/research
+旧文档通过history固定Git版本查阅；output/archive/review-ready-baseline只保留研究评测原型与对应测试原件，实验结果仍在output/research
 
 ##### 工作区
 

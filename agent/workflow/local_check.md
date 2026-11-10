@@ -1,7 +1,7 @@
 ##### 当前检查入口
 
 当前CPU检查见[基线工作流](baseline.md)，本页下文为历史诊断经验，不代表仍有运行中实验
-读取Skill原型及专用测试已归档到output/archive/review-ready-baseline，不在默认submission或通用回归中
+读取Skill原件在output/research/read-contract/shipping/agent/skills/read-window，专用测试在output/archive/review-ready-baseline/src，不在默认submission或通用回归中
 
 ##### 运行器导入资格的实际教训
 

@@ -5,7 +5,7 @@ submission/已恢复为公榜0.17原包中的四份文本，单31B、六原生�
 SHA256 baea5d6b2c006d4ac758f79b5cfb2c500eefa84e08b37cc1f220e2a72ccf7563
 
 本次仅整理代码与文档，没有重新评分，既有官方与本地结论见[Harness收尾](../research/harness_closeout.md)
-旧Skill配置已归档到 output/archive/review-ready-baseline/submission，不是当前默认方案
+旧Skill配置与源码通过Git版本effbee5查阅，不是当前默认方案
 旧提交历史全文保留于同归档目录的 agent/workflow/baseline.md；原始正式回执仍在output/research各研究目录
 
 ##### CPU检查与打包

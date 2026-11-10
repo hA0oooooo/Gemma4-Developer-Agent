@@ -9,5 +9,3 @@
 
 Windows不下载权重、任务快照或研究原始输出，不建立重复运行环境
 代码同步使用既有分支，先fetch再按实际分叉状态处理，不覆盖Linux脏改动或force push
-
-旧Windows长交接保留在Linux output/archive/review-ready-baseline/agent/workflow/windows_handoff.md

@@ -10,5 +10,3 @@
 训练是下一阶段待设计事项，先核验训练checkpoint与比赛CT部署侧adapter兼容，再定数据与资源
 现有SFT／RL数据就绪标记均为false，详见[训练交接](../research/training_handoff.md)
 不因文档存在自动训练、改权重、扩权或购买资源
-
-旧通用硬件备忘录保留在Linux output/archive/review-ready-baseline/agent/workflow/gpu_training_guide.md
